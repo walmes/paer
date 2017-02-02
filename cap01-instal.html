@@ -1,0 +1,550 @@
+<!-- Baseado no arquivo: 
+  /usr/lib/R/site-library/rmarkdown/rmd/h/default.html
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt.BR" xml:lang="pt.BR">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Download e Instalação do R e Editores</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      "HTML-CSS": {
+          scale: 85,
+          availableFonts: ["TeX"],
+      }
+  });
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="config/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<script src="/codefolding.js"></script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+  padding-left: 10px;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PAER</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Capítulos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cap01-instal.html">Download e Instalação</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.researchgate.net/profile/Walmes_Zeviani2">
+    <span class="fa fa-user"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://gitlab.c3sl.ufpr.br/walmes/paer">
+    <span class="fa fa-git-square fa-lg"></span>
+     
+    GitLab
+  </a>
+</li>
+<li>
+  <a href="https://github.com/walmes/paer">
+    <span class="fa fa-github fa-lg"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<style type="text/css">
+div.header {
+    margin-top: 20px;
+    border-bottom: 1px solid #BCBCBC;
+    border-top: none;
+}
+table.header {
+    margin-top: 10px;
+    border-collapse: unset;
+}
+table.header > tbody {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+</style>
+
+<table class="header" width="100%" align="center">
+  <tr>
+    <td align="left" valign="bottom" width="90px">
+      <img src="config/newuser-logo.png" width="100%" />
+    </td>
+    <td align="left" valign="top">
+      <div class="header">
+        <h4 style="font-size: 20px; margin: 10px auto 0 10px">
+          Planejamento e Análise de Experimentos com R
+        </h4>
+        <h5 style="margin: 0px 0px 10px 10px">
+          <a href="https://github.com/walmes/paer">
+            <code>github.com/walmes/paer</code>
+          </a>
+        </h5>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Download e Instalação do R e Editores</h1>
+
+</div>
+
+
+<div id="download-e-instalacao-do-r" class="section level1">
+<h1><span class="header-section-number">1</span> Download e Instalação do R</h1>
+<p>O software de computação estatística R ésta disponível para download no repositório oficial do projeto R: <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>.</p>
+<p>A instalação do R para usários dos sistemas operacionais Linux, Mac OS X e Windows, está descrita em: <a href="http://cran-r.c3sl.ufpr.br/" class="uri">http://cran-r.c3sl.ufpr.br/</a>.</p>
+<p>Usários do SO Windows podem instalar o R a partir do executável <code>*.exe</code> disponibilizado em: <a href="http://cran-r.c3sl.ufpr.br/bin/windows/" class="uri">http://cran-r.c3sl.ufpr.br/bin/windows/</a>. Para uma instalação padrão, basta clicar em avançar durante as etapas até chegar em concluir. Usuários de Mac OS X devem seguir as instruções diponíveis no site.</p>
+<p>Para os usuários de Linux, existem tutoriais para instalação em 4 distribuições: Debian, Redhat, Suse e Ubuntu. Os passos para instalação do R no Ubuntu estão descritos abaixo.</p>
+<p>Abra um terminal no seu Ubunto (atalho <code>Ctrl + Alt + t</code>). Em seguida verique a versão do Ubuntu que está usando.</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co"># Mostra a versão do Ubuntu.</span>
+<span class="kw">lsb_release</span> -a</code></pre></div>
+<pre><code>No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.1 LTS
+Release:    16.04
+Codename:   xenial</code></pre>
+<p>Em seguida, abra o arquivo <code>/etc/apt/sources.list</code> como super usuário.</p>
+<pre><code># Abre o arquivo como super usuário.
+sudo gedit /etc/apt/sources.list</code></pre>
+<p>Adicione a linha abaixo no final do arquivo. Salve, feche e volte ao terminal.</p>
+<pre><code># Modelo de repositório e distribuição Ubuntu.
+deb https://&lt;my.favorite.cran.mirror&gt;/bin/linux/ubuntu &lt;version&gt;/
+
+# Usando o repositório do C3SL para o Ubuntu Xenial Xerus (16.04)
+deb http://cran-r.c3sl.ufpr.br/bin/linux/ubuntu xenial/</code></pre>
+<p>No termianal atualize a lista de repositórios (<code>fetch</code>) e instale o <code>r-babe</code>.</p>
+<pre><code>sudo apt-get update
+sudo apt-get install r-base</code></pre>
+<p>Depois de instalar o <code>r-base</code> pelo terminal, você já terá o R na versão mais enxuta, ou seja, aquela com os pacotes recomentados apenas. Os demais pacotes podem ser instalados de dentro do R, com <code>install.packages()</code>, como será mostrado a frente.</p>
+</div>
+<div id="instalacao-do-rstudio" class="section level1">
+<h1><span class="header-section-number">2</span> Instalação do RStudio</h1>
+<p>O <a href="https://www.rstudio.com/">RStudio</a> talvez seja o único editor específico multiplataforma para o R. O RStudio é bastante fácil de usar e por isso é recomendado para aqueles que estão começão a trabalhar com R.</p>
+<p>Na <a href="https://www.rstudio.com/products/rstudio/download/">área de downloads</a> do site do RStudio, pode-se baixar os instaladores para Ubuntu (<code>.deb</code>), Windows (<code>.exe</code>) e MAC OS X (<code>.dmg</code>) além de Fedora, Redhat e Suse (<code>.rpm</code>).</p>
+<p>O executável <code>.exe</code> do Windows é de simples instalação. Da mesma forma, com o arquivo <code>.deb</code> para Ubuntu, o RStudio é instalado por meio de interface gráfica.</p>
+<p>Pode-se trabalhar no R com outros editores. A lista abaixo</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.gnu.org/software/emacs/">Emacs</a> com o pacote <a href="https://ess.r-project.org/">ESS</a> (Emacs Speaks Statistis).</li>
+<li><a href="http://www.vim.org/about.php">Vim</a> com o plugin <a href="http://www.vim.org/scripts/script.php?script_id=2628">Nvim-R</a>.</li>
+<li><a href="https://sourceforge.net/projects/tinn-r/">Tinn-R</a>.</li>
+<li><a href="http://www.eclipse.org/eclipse/">Eclipse</a> com <a href="http://www.walware.de/goto/statet">StatET</a>.</li>
+<li><a href="http://www.sublimetext.com/">Sublime Text</a>.</li>
+<li><a href="https://wiki.gnome.org/Apps/Gedit">Gedit</a> com <a href="http://rgedit.sourceforge.net/">Rgedit</a> plugin.</li>
+</ol>
+<p>Creio que os mais utilizados sejam o RStudio com os três primeiros da lista, não necessariamente nesta ordem. Viste as homepages para saber como usar estes editores para trabalhar com o R.</p>
+<p>O Emacs<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, junto com o Vi, são os editores mais antigos dessa lista conforme o <a href="http://texteditors.org/cgi-bin/wiki.pl?Timeline">texteditors.org</a>. Como não são editores de R, pois surgiram 17 anos do R, e por serem altamente customizáveis, a maioria dos desenvolvedores no começo da história do R, e muitos até hoje, fazem uso destes editores.</p>
+</div>
+<div id="instalacao-do-emacs" class="section level1">
+<h1><span class="header-section-number">3</span> Instalação do Emacs</h1>
+<p>Para instalar o Emacs no Ubuntu, execute cada linha do código abaixo em um terminal. O Emacs atualmente está na versão 24.5.1.</p>
+<pre><code>sudo apt-get install build-essential
+sudo apt-get install emacs emacs-goodies-el ess</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">emacs</span> --version</code></pre></div>
+<pre><code>## GNU Emacs 24.5.1
+## Copyright (C) 2015 Free Software Foundation, Inc.
+## GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+## You may redistribute copies of Emacs
+## under the terms of the GNU General Public License.
+## For more information about these matters, see the file named COPYING.</code></pre>
+<p>Usuários do Windows é recomendado instalar o Emacs modificado do <a href="http://vgoulet.act.ulaval.ca/en/emacs/">Vincent Goulet</a> que inclui o ESS.</p>
+<!-- # Referências Bibliográficas -->
+<!------------------------------------------- -->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>O Emacs é o editor com o qual comecei a usar o R quando migrei para o Linux em 2008. Como o passar do tempo, naturalmente fui me interessando mais pelo Emacs e por LISP, a liguagem usada para fazer pacotes para o Emacs. Meus arquivos de configuração do Emacs estão hoje disponíveis em <a href="https://github.com/walmes/emacs" class="uri">https://github.com/walmes/emacs</a>.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+<style type="text/css">
+hr.footer {
+    border-top: 1px solid #BCBCBC;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+table.footer {
+    margin-bottom: 10px;
+    border-bottom: none;
+    border-collapse: unset;
+}
+table.footer > tbody {
+    border-bottom: 0px;
+}
+div.tocify-extend-page {
+	height: 10px !important;
+}
+</style>
+
+<hr class="footer"/>
+<center>
+  <table class="footer" width="100%">
+    <tr>
+      <td width="60%">
+	<h4><em>Planejamento e Análise de Experimentos com R</em></h4>
+      </td>
+      <td width="40%" align="right">
+        <a href="https://github.com/walmes/paer">
+          github.com/walmes/paer
+      </a></td>
+    </tr>
+  </table>
+</center>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+
+</body>
+</html>

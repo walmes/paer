@@ -1,0 +1,642 @@
+<!-- Baseado no arquivo: 
+  /usr/lib/R/site-library/rmarkdown/rmd/h/default.html
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Prof. Walmes M. Zeviani" />
+
+
+<title>Planejamento e Análise de Experimentos com R</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      "HTML-CSS": {
+          scale: 85,
+          availableFonts: ["TeX"],
+      }
+  });
+</script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="config/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<script src="/codefolding.js"></script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+  padding-left: 10px;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PAER</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Capítulos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cap01-instal.html">Download e Instalação</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.researchgate.net/profile/Walmes_Zeviani2">
+    <span class="fa fa-user"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://gitlab.c3sl.ufpr.br/walmes/paer">
+    <span class="fa fa-git-square fa-lg"></span>
+     
+    GitLab
+  </a>
+</li>
+<li>
+  <a href="https://github.com/walmes/paer">
+    <span class="fa fa-github fa-lg"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<style type="text/css">
+div.header {
+    margin-top: 20px;
+    border-bottom: 1px solid #BCBCBC;
+    border-top: none;
+}
+table.header {
+    margin-top: 10px;
+    border-collapse: unset;
+}
+table.header > tbody {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+</style>
+
+<table class="header" width="100%" align="center">
+  <tr>
+    <td align="left" valign="bottom" width="90px">
+      <img src="config/newuser-logo.png" width="100%" />
+    </td>
+    <td align="left" valign="top">
+      <div class="header">
+        <h4 style="font-size: 20px; margin: 10px auto 0 10px">
+          Planejamento e Análise de Experimentos com R
+        </h4>
+        <h5 style="margin: 0px 0px 10px 10px">
+          <a href="https://github.com/walmes/paer">
+            <code>github.com/walmes/paer</code>
+          </a>
+        </h5>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Planejamento e Análise de Experimentos com R</h1>
+<h4 class="author"><em>Prof. Walmes M. Zeviani</em></h4>
+
+</div>
+
+
+<div id="ementa-do-curso" class="section level1">
+<h1><span class="header-section-number">1</span> Ementa do Curso</h1>
+<div id="parte-i---introducao-ao-r" class="section level2">
+<h2><span class="header-section-number">1.1</span> Parte I - Introdução ao R</h2>
+<p>Objetivos: Apresentar os fundamentos da linguagem e da programação orientada à objetos do aplicativo R e com ele fazer a leitura de dados, estatística descritiva e análise gráfica exploratória.</p>
+<ol style="list-style-type: decimal">
+<li>Download e instalação do R e de editores de aquivos R.</li>
+<li>Primeira sessão.
+<ol style="list-style-type: decimal">
+<li>O prompt de comando, regras de instrução e comentários no código.</li>
+<li>Recursos dos editores.</li>
+<li>Consulta à documentação.</li>
+<li>Salvar e carregar um script e sessão.</li>
+<li>Instalação de pacotes.</li>
+<li>Blogs e listas de discussão de R.</li>
+</ol></li>
+<li>Aritmética básica tipos de objeto
+<ol style="list-style-type: decimal">
+<li>Operações matemáticas e lógicas.</li>
+<li>Tipos primários: inteiro, numérico, lógico, caracteres e fatores.</li>
+<li>Formatos: vetores, matrizes, listas e tabelas.</li>
+<li>Seleção e modificação de objetos.</li>
+<li>Operações com objetos.</li>
+</ol></li>
+<li>Leitura e escrita de arquivos de dados.
+<ol style="list-style-type: decimal">
+<li>Texto com separador de campo.</li>
+<li>Texto com comprimento fixo de campo.</li>
+<li>Planilhas eletrônicas.</li>
+</ol></li>
+<li>Tabelas.
+<ol style="list-style-type: decimal">
+<li>Seleção e ordenação.</li>
+<li>Adição e transformação das variáveis.</li>
+<li>Mudança na disposição dos dados.</li>
+<li>Fusão entre tabelas.</li>
+</ol></li>
+<li>Estatística descritiva: medidas de posição, dispersão e associação.</li>
+<li>Funções para execução de tarefas por estrato e índice.</li>
+<li>Gráficos.
+<ol style="list-style-type: decimal">
+<li>Visualização de dados com gráficos.</li>
+<li>Edição de propriedades do gráfico.</li>
+<li>Adição de geometria e anotações.</li>
+<li>Exportação de gráficos.</li>
+</ol></li>
+</ol>
+</div>
+<div id="parte-ii---analise-de-experimentos-com-o-r" class="section level2">
+<h2><span class="header-section-number">1.2</span> Parte II - Análise de Experimentos com o R</h2>
+<p>Objetivos: Revisar os princípios do planejamento de experimentos, as estruturas dos delineamentos a arranjos experimentais mais comuns. Instrumentalizar os participantes para a análise de experimentos com o aplicativo R de computação estatística.</p>
+<ol style="list-style-type: decimal">
+<li>Revisão de planejamento de experimentos.
+<ol style="list-style-type: decimal">
+<li>Conceitos fundamentais de experimentação: hipótese, unidade experimental, aleatorização, blocagem.</li>
+<li>Tipos de variáveis resposta, de fatores e de efeitos.</li>
+<li>Delineamentos experimentais.</li>
+<li>Especificação de modelos e pressupostos.</li>
+</ol></li>
+<li>Análise de experimentos com um fator.
+<ol style="list-style-type: decimal">
+<li>Modelo para experimentos em DIC, DBC e DQL.</li>
+<li>Ajuste do modelo e avaliação dos pressupostos.</li>
+<li>Quadro de análise de variância.</li>
+<li>Testes de médias.</li>
+<li>Representação gráfica dos resultados.</li>
+</ol></li>
+<li>Regressão linear.</li>
+<li>Análise de covariância.</li>
+<li>Análise de experimentos fatorais completos.
+<ol style="list-style-type: decimal">
+<li>Modelo para experimentos fatoriais.</li>
+<li>Ajuste do modelo e avaliação dos pressupostos.</li>
+<li>Análise de variância.</li>
+<li>Desdobramento da interação.</li>
+<li>Representação dos resultados.</li>
+</ol></li>
+<li>Regressão na análise de experimentos.</li>
+<li>Experimentos em blocos incompletos balanceados.</li>
+<li>Metodologia de superfície de resposta.
+<ol style="list-style-type: decimal">
+<li>Experimentos fatoriais 2<sup>k</sup> e 3<sup>k</sup>.</li>
+<li>Delineamento composto central.</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="pre-requisitos-para-o-curso" class="section level1">
+<h1><span class="header-section-number">2</span> Pré-requisitos para o Curso</h1>
+<ol style="list-style-type: decimal">
+<li>Ter cursado Estatística Básica e Estatistica Experimental.</li>
+<li>Ter conexão com a internet durante o Curso.</li>
+<li>Ter a recente versão do R e RStudio instaladas.</li>
+</ol>
+</div>
+<div id="datas" class="section level1">
+<h1><span class="header-section-number">3</span> Datas</h1>
+<p>O horário dos encontros por web conferência e o conteúdo previsto estão na tabela abaixo. Em função dos interesses da audiência, podem ser priorizados alguns itens em detrimento de outros. O restante da carga horária será para resolução de exercícios.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Conteúdo previsto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>08/02, 10h-12h</td>
+<td>Parte I - item 1-4</td>
+</tr>
+<tr class="even">
+<td>09/02, 10h-12h</td>
+<td>Parte I - item 5-7</td>
+</tr>
+<tr class="odd">
+<td>10/02, 10h-12h</td>
+<td>Parte I - item 8</td>
+</tr>
+<tr class="even">
+<td>13/02, 10h-12h</td>
+<td>Parte II - item 1-2</td>
+</tr>
+<tr class="odd">
+<td>14/02, 10h-12h</td>
+<td>Parte II - item 3-4</td>
+</tr>
+<tr class="even">
+<td>15/02, 10h-12h</td>
+<td>Parte II - item 5-6</td>
+</tr>
+<tr class="odd">
+<td>16/02, 10h-12h</td>
+<td>Parte II - item 7-8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="biografia-academica-do-instrutor" class="section level1">
+<h1><span class="header-section-number">4</span> Biografia Acadêmica do Instrutor</h1>
+<p>Walmes Marques Zeviani é Professor do Departamento de Estatística da Universidade Federal do Paraná (UFPR) desde 2010 onde leciona principalmente para o Curso de Bacharel em Estatística. É mestre e doutor em Estatística e Experimentação Agropecuária (UFLA, 2008-13) com título de bacharel em Agronomia (UFGD, 2003-07). Tem experiência com Cursos de Treinamento em R e Estatística Experimental e participa regularmente de Eventos Científicos com Cursos e Palestras. Atua como revisor de periódicos nacionais na área de Estatística. Seus principais interesses são em Planejamento de Análise de Experimentos, Modelos de Regressão e Estatística Computacional.</p>
+</div>
+<div id="referencias" class="section level1 unnumbered">
+<h1>Referências</h1>
+<div id="refs" class="references">
+<div id="ref-abedin2014data">
+<p>ABEDIN, J. <strong>Data manipulation with r</strong>. Packt Publishing, 2014.</p>
+</div>
+<div id="ref-banzatto">
+<p>BANZATTO, D. A.; KRONKA, S. D. <strong>Experimentação agrícola</strong>. 4th ed. Jaboticabal, SP: Funep, 2013.</p>
+</div>
+<div id="ref-Bretz2010">
+<p>BRETZ, F.; HOTHORN, T.; WESTFALL, P. <strong>Multiple comparisons using r</strong>. 1st ed. Chapman; Hall/CRC, 2010.</p>
+</div>
+<div id="ref-chambers2008software">
+<p>CHAMBERS, J. <strong>Software for Data Analysis: Programming with R</strong>. Springer, 2008.</p>
+</div>
+<div id="ref-chang2013r">
+<p>CHANG, W. <strong>R Graphics Cookbook</strong>. O’Reilly Media, Incorporated, 2013.</p>
+</div>
+<div id="ref-charnet">
+<p>CHARNET, R.; LUNA FREIRE, C. DE; CHARNET, E.; BONVINO, H. <strong>Análise de modelos de regressão linear com aplicações</strong>. 2nd ed. Campinas, SP: Editora Unicamp, 2008.</p>
+</div>
+<div id="ref-Dalgaard2008">
+<p>DALGAARD, P. <strong>Introductory Statistics with R</strong>. 2nd ed. Springer, 2008.</p>
+</div>
+<div id="ref-demetrio">
+<p>DEMÉTRIO, C. G. B.; ZOCCHI, S. S. Modelos de regressão., 2011. Piracicaba, SP. ESALQ (apostila).</p>
+</div>
+<div id="ref-Draper1998">
+<p>DRAPER, N.; SMITH, H. <strong>Applied regression analysis</strong>. 3rd ed. New York: Wiley-Interscience, 1998.</p>
+</div>
+<div id="ref-Logan2010">
+<p>LOGAN, M. <strong>Biostatistical Design and Analysis Using R</strong>. Wiley-Blackwell, 2010.</p>
+</div>
+<div id="ref-pimentel">
+<p>PIMENTEL GOMES, F. <strong>Curso de estatística experimental</strong>. 15th ed. Piracicaba, SP: FEALQ, 2009.</p>
+</div>
+<div id="ref-ramalho">
+<p>RAMALHO, M. A. P.; FERREIRA, D. F.; OLIVEIRA, A. C. <strong>Experimentação em genética e melhoramento de plantas</strong>. 2nd ed. Lavras, MG: Editora UFLA, 2005.</p>
+</div>
+<div id="ref-Rawlings1998">
+<p>RAWLINGS, J. O.; PANTULA, S. G.; DICKEY, D. A. <strong>Applied Regression Analysis: A Research Tool</strong>. 2nd ed. Springer, 1998.</p>
+</div>
+<div id="ref-Ritz2008">
+<p>RITZ, C.; STREIBIG, J. C. <strong>Nonlinear regression with R</strong>. 1st ed. New York: Springer, 2008.</p>
+</div>
+<div id="ref-Sarkar2008">
+<p>SARKAR, D. <strong>Lattice: Multivariate Data Visualization with R</strong>. 1st ed. Springer, 2008.</p>
+</div>
+<div id="ref-Seber2003">
+<p>SEBER, G. A. F.; WILD, C. J. <strong>Nonlinear Regression</strong>. Hoboken: Wiley, 2003.</p>
+</div>
+<div id="ref-verzani2014using">
+<p>VERZANI, J. <strong>Using R for Introductory Statistics, Second Edition</strong>. Taylor &amp; Francis, 2014.</p>
+</div>
+<div id="ref-Weisberg2005">
+<p>WEISBERG, S. <strong>Applied Linear Regression</strong>. 3rd ed. Wiley, 2005.</p>
+</div>
+<div id="ref-zimmermann">
+<p>ZIMMERMANN, F. J. <strong>Estatística aplicada à pesquisa agrícola</strong>. 1st ed. Santo Antônio de Goiás, GO: Embrapa Arroz e Feijão, 2004.</p>
+</div>
+</div>
+</div>
+
+<style type="text/css">
+hr.footer {
+    border-top: 1px solid #BCBCBC;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+table.footer {
+    margin-bottom: 10px;
+    border-bottom: none;
+    border-collapse: unset;
+}
+table.footer > tbody {
+    border-bottom: 0px;
+}
+div.tocify-extend-page {
+	height: 10px !important;
+}
+</style>
+
+<hr class="footer"/>
+<center>
+  <table class="footer" width="100%">
+    <tr>
+      <td width="60%">
+	<h4><em>Planejamento e Análise de Experimentos com R</em></h4>
+      </td>
+      <td width="40%" align="right">
+        <a href="https://github.com/walmes/paer">
+          github.com/walmes/paer
+      </a></td>
+    </tr>
+  </table>
+</center>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+
+</body>
+</html>
