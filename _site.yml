@@ -1,4 +1,4 @@
-name: "CE-074"
+name: "PAER"
 output_dir: "."
 exclude: ["README.md"]
 output:
@@ -32,9 +32,6 @@ navbar:
   right:
     - icon: fa-user
       href: https://www.researchgate.net/profile/Walmes_Zeviani2
-    - text: GitLab
-      icon: fa-git-square fa-lg
-      href: https://gitlab.c3sl.ufpr.br/walmes/paer
     - text: GitHub
       icon: fa-github fa-lg
       href: https://github.com/walmes/paer
