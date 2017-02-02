@@ -1,0 +1,361 @@
+/* Cores ------------------------------------ */
+
+/* http://htmlcolorcodes.com/ */
+/* http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF */
+:root{
+    /* Roxo */
+    --one-color: #423075; /* médio */
+    --two-color: #897BAF; /* escuro */
+    --thr-color: #625192; /* claro */
+    /* Verde */
+    /* --one-color: #277062; /\* médio *\/ */
+    /* --two-color: #71A89D; /\* escuro *\/ */
+    /* --thr-color: #478B7E; /\* claro *\/ */
+    /* Azul */
+    /* --one-color: #1D579C; /\* médio *\/ */
+    /* --two-color: #5C87BA; /\* escuro *\/ */
+    /* --thr-color: #396AA4; /\* claro *\/ */
+    /* Vermelho */
+    /* --one-color: #890000; /\* médio *\/ */
+    /* --two-color: #CC3434; /\* escuro *\/ */
+    /* --thr-color: #A91616; /\* claro *\/ */
+}
+
+/* Corpo ------------------------------------ */
+
+body, td, caption {
+    /* font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
+    font-family: "Lato", sans-serif;
+    background-color: white;
+    font-size: 16px;
+    text-align: none;
+}
+
+body {
+    margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+}
+
+h1.title {
+    font-size: 38px;
+    //margin-bottom: 50px;
+}
+
+.section h1 {
+    margin-top: -40px;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+div#header {
+    margin-bottom: 4em;
+}
+
+/* TOC -------------------------------------- */
+
+#TOC {
+    font-size: 15px;
+    margin: 0px 0px 20px 0px;
+}
+
+#TOC li {
+    /* list-style: outside none url; */
+    list-style: none;
+}
+
+#TOC li:before {
+    content: '';
+}
+
+.tocify-header {
+    text-indent: 0px;
+}
+
+.tocify-subheader {
+    text-indent: 0px !important;
+}
+
+.tocify-subheader .tocify-item {
+    font-size: 90% !important;
+    padding-left: 15px !important;
+}
+
+div.tocify-extend-page {
+	height: 10px !important;
+}
+
+/* Cores ------------------------------------ */
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    background-color: var(--one-color);
+    border-color: var(--one-color);
+}
+
+.navbar-default {
+    background-color: var(--one-color);
+    border-color: var(--one-color);
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    background-color: var(--one-color);
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background-color: var(--two-color);
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: var(--thr-color);
+}
+
+a,
+a:hover,
+a:focus {
+    color: var(--one-color);
+    text-decoration: none;
+}
+
+/* Resumo ----------------------------------- */
+
+div.abstract {
+    margin-bottom: 2em;
+}
+
+div.abstract p.abstract{
+   text-indent: 0;
+   font-size: 100%;
+   text-align: center;
+   font-weight: bold;
+   margin-bottom: 0.5em;
+}
+
+div.abstract p {
+   width: 90%;
+   margin: auto;
+   text-indent: 2em;
+   text-align: justify;
+   line-height: 20px;
+}
+
+div.abstract p:last-child {
+   padding-top: 0.5em;
+   text-indent: 0;
+}
+
+/* Parafrases ------------------------------- */
+
+blockquote {
+    font-size: 100%;
+    width: 66%;
+    margin-left: auto;
+    border: none;
+    display: block;
+    margin: auto;
+}
+
+blockquote p {
+    font-style: italic;
+    text-indent: 0em;
+}
+
+blockquote p:last-child {
+    text-indent: 0em;
+    text-align: right;
+    font-style: normal;
+    display: inherit;
+}
+
+/* Listas ----------------------------------- */
+
+ul li, li ul li, li li ul li {
+    list-style: none;
+}
+
+/* http://www.w3schools.com/charsets/ref_utf_geometric.asp */
+body ul li:before {
+    content: '\25B8';
+    margin-left: -1em;
+    position: absolute;
+}
+
+body li ul li:before {
+    content: '\25B9';
+    color: inherit;
+}
+
+body li li ul li:before {
+    content: '\25B8';
+    color: #AAA;
+}
+
+div.tocify ul li:before,
+div.navbar ul li:before,
+ul.dropdown-menu li:before {
+    content: '';
+}
+
+/* Figuras ---------------------------------- */
+
+img {
+    max-width: 100% !important;
+    display: block;
+    margin: auto;
+}
+
+/* Tabelas ---------------------------------- */
+
+tbody {
+    border-bottom: 2px solid #DDD;
+}
+
+tr.header {
+    border-top: 2px solid #DDD;
+    border-bottom: 2px solid #DDD;
+}
+
+tr {
+    border-top: 1px solid #DDD;
+}
+
+/* Tabela com o nome dos autores. */
+h4.author table {
+    border: none;
+    font-size: 120%;
+    width: auto;
+    margin: 2em auto 2em auto;
+}
+
+h4.author table tbody,
+h4.author table thead,
+h4.author table tr.header th,
+h4.author table tr {
+    border: none;
+    line-height: unset;
+     font-weight: normal;
+}
+
+h4.author table td,
+h4.author table th {
+    border: none;
+    border: none;
+    padding: 0 20px 0 20px;
+}
+
+/* Legendas --------------------------------- */
+
+table.table caption,
+caption,
+p.caption {
+    text-align: left;
+    margin-left: 4em;
+    margin-right: 0em;
+    text-indent: -4em;
+    color: inherit;
+}
+
+/* Referências ------------------------------ */
+
+div.references p {
+    text-indent: -1em;
+    margin-left: 1em;
+    text-align: left;
+}
+
+/* Código ----------------------------------- */
+
+tt, code, pre {
+    font-family: "Inconsolata", "Andale Mono", monospace;
+}
+
+pre code {
+    font-size: 14px;
+}
+
+code {
+    padding: 0px 0px;
+    font-size: 90%;
+    background-color: none;
+}
+
+/* R input */
+pre, code {
+    /* border-radius: 3px; */
+    background-color: #EDEDED;
+    color: #333;
+}
+
+pre {
+    border: none;
+    border-radius: 3px;
+}
+
+/* Comments in gray italic */
+code > span.co {
+    color: #848484;
+    font-style: italic;
+}
+
+/* R output */
+pre:not([class]) code {
+    background-color: #D4D4D4;
+}
+
+pre:not([class]), code {
+    background-color: #D4D4D4;
+}
+
+/* Solarized light--------------------------- */
+
+/* Retirado de
+   https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/solarized_light.min.css
+ */
+
+pre code {
+    /* display:block; */
+    /* padding:.5em; */
+    /* background:#fdf6e3; */
+    color:#657b83
+}
+pre .comment {
+    color:#93a1a1;
+    font-style:italic
+}
+pre .keyword {
+    color:#859900
+}
+pre .string {
+    color:#2aa198
+}
+pre .number {
+    color:#cb4b16
+}
+pre .identifier,
+pre .literal {
+    /* color:#268bd2 */
+    color:#657b83
+}
+pre .operator,
+pre .paren {
+    /* color:#b58900 */
+    color:#3e4a4f
+}
+
+/*------------------------------------------- */

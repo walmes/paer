@@ -1,0 +1,137 @@
+---
+title: "Planejamento e Análise de Experimentos com R"
+author: "Prof. Walmes M. Zeviani"
+bibliography: config/Refs.bib
+csl: config/ABNT-UFPR-2011-Mendeley.csl
+output:
+  html_document:
+    toc: true
+    number_sections: true
+# http://rmarkdown.rstudio.com/rmarkdown_websites.html    
+---
+
+# Ementa do Curso
+
+## Parte I - Introdução ao R
+
+Objetivos: Apresentar os fundamentos da linguagem e da programação
+orientada à objetos do aplicativo R e com ele fazer a leitura de dados,
+estatística descritiva e análise gráfica exploratória.
+
+  1. Download e instalação do R e de editores de aquivos R.
+  2. Primeira sessão.
+     1. O prompt de comando, regras de instrução e comentários no código.
+     2. Recursos dos editores.
+     3. Consulta à documentação.
+     4. Salvar e carregar um script e sessão.
+     5. Instalação de pacotes.
+     6. Blogs e listas de discussão de R.
+  3. Aritmética básica tipos de objeto
+     1. Operações matemáticas e lógicas.
+     2. Tipos primários: inteiro, numérico, lógico, caracteres e fatores.
+     3. Formatos: vetores, matrizes, listas e tabelas.
+     4. Seleção e modificação de objetos.
+     5. Operações com objetos.
+  4. Leitura e escrita de arquivos de dados.
+     1. Texto com separador de campo.
+     2. Texto com comprimento fixo de campo.
+     3. Planilhas eletrônicas.
+  5. Tabelas.
+     1. Seleção e ordenação.
+     2. Adição e transformação das variáveis.
+     3. Mudança na disposição dos dados.
+     4. Fusão entre tabelas.
+  6. Estatística descritiva: medidas de posição, dispersão e associação.
+  7. Funções para execução de tarefas por estrato e índice.
+  8. Gráficos.
+     1. Visualização de dados com gráficos.
+     4. Edição de propriedades do gráfico.
+     5. Adição de geometria e anotações.
+     6. Exportação de gráficos.
+
+## Parte II - Análise de Experimentos com o R
+
+Objetivos: Revisar os princípios do planejamento de experimentos, as
+estruturas dos delineamentos a arranjos experimentais mais
+comuns. Instrumentalizar os participantes para a análise de experimentos
+com o aplicativo R de computação estatística.
+
+  1. Revisão de planejamento de experimentos.
+     1. Conceitos fundamentais de experimentação: hipótese, unidade
+        experimental, aleatorização, blocagem.
+     2. Tipos de variáveis resposta, de fatores e de efeitos.
+     3. Delineamentos experimentais.
+     4. Especificação de modelos e pressupostos.
+  2. Análise de experimentos com um fator.
+     1. Modelo para experimentos em DIC, DBC e DQL.
+     2. Ajuste do modelo e avaliação dos pressupostos.
+     3. Quadro de análise de variância.
+     4. Testes de médias.
+     5. Representação gráfica dos resultados.
+  3. Regressão linear.
+  4. Análise de covariância.
+  5. Análise de experimentos fatorais completos.
+     1. Modelo para experimentos fatoriais.
+     2. Ajuste do modelo e avaliação dos pressupostos.
+     3. Análise de variância.
+     4. Desdobramento da interação.
+     5. Representação dos resultados.
+  6. Regressão na análise de experimentos.
+  7. Experimentos em blocos incompletos balanceados.
+  8. Metodologia de superfície de resposta.
+     1. Experimentos fatoriais 2^k^ e 3^k^.
+     2. Delineamento composto central.
+
+# Pré-requisitos para o Curso
+
+  1. Ter cursado Estatística Básica e Estatistica Experimental.
+  2. Ter conexão com a internet durante o Curso.
+  3. Ter a recente versão do R e RStudio instaladas.
+
+# Datas
+
+O horário dos encontros por web conferência e o conteúdo previsto estão
+na tabela abaixo. Em função dos interesses da audiência, podem ser
+priorizados alguns itens em detrimento de outros. O restante da carga
+horária será para resolução de exercícios.
+
+| Data           | Conteúdo previsto   |
+|----------------+---------------------|
+| 08/02, 10h-12h | Parte I - item 1-4  |
+| 09/02, 10h-12h | Parte I - item 5-7  |
+| 10/02, 10h-12h | Parte I - item 8    |
+| 13/02, 10h-12h | Parte II - item 1-2 |
+| 14/02, 10h-12h | Parte II - item 3-4 |
+| 15/02, 10h-12h | Parte II - item 5-6 |
+| 16/02, 10h-12h | Parte II - item 7-8 |
+
+# Biografia Acadêmica do Instrutor
+
+Walmes Marques Zeviani é Professor do Departamento de Estatística da
+Universidade Federal do Paraná (UFPR) desde 2010 onde leciona
+principalmente para o Curso de Bacharel em Estatística.  É mestre e
+doutor em Estatística e Experimentação Agropecuária (UFLA, 2008-13) com
+título de bacharel em Agronomia (UFGD, 2003-07).  Tem experiência com
+Cursos de Treinamento em R e Estatística Experimental e participa
+regularmente de Eventos Científicos com Cursos e Palestras. Atua como
+revisor de periódicos nacionais na área de Estatística. Seus principais
+interesses são em Planejamento de Análise de Experimentos, Modelos de
+Regressão e Estatística Computacional.
+
+# Referências
+
+```{r, include = FALSE}
+system("sed '/Url/d' config/refs.bib > config/Refs.bib")
+refs <- system("grep -E '^@[[:alpha:]]+{' config/refs.bib",
+               intern = TRUE)
+refs <- gsub("^@[[:alpha:]]+\\{([[:alnum:]]+),",
+             replacement = "@\\1",
+             x = refs)
+cat(refs, sep = ", ")
+x <- paste(refs, collapse = ", ")
+```
+
+---
+nocite: |
+  `r x`
+...

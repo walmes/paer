@@ -1,0 +1,136 @@
+---
+title: "Download e Instalação do R e Editores"
+csl: config/ABNT-UFPR-2011-Mendeley.csl
+lang: pt.BR
+---
+
+```{r, include = FALSE}
+source("config/setup.R")
+```
+
+# Download e Instalação do R
+
+O software de computação estatística R ésta disponível para download no
+repositório oficial do projeto R: <https://www.r-project.org/>.
+
+A instalação do R para usários dos sistemas operacionais Linux, Mac OS X
+e Windows, está descrita em: <http://cran-r.c3sl.ufpr.br/>.
+
+Usários do SO Windows podem instalar o R a partir do executável `*.exe`
+disponibilizado em: <http://cran-r.c3sl.ufpr.br/bin/windows/>. Para uma
+instalação padrão, basta clicar em avançar durante as etapas até chegar
+em concluir. Usuários de Mac OS X devem seguir as instruções diponíveis
+no site.
+
+Para os usuários de Linux, existem tutoriais para instalação em 4
+distribuições: Debian, Redhat, Suse e Ubuntu. Os passos para instalação
+do R no Ubuntu estão descritos abaixo.
+
+Abra um terminal no seu Ubunto (atalho `Ctrl + Alt + t`). Em seguida
+verique a versão do Ubuntu que está usando.
+```{r, engine = "sh", comment = NA}
+# Mostra a versão do Ubuntu.
+lsb_release -a
+```
+
+Em seguida, abra o arquivo `/etc/apt/sources.list` como super usuário.
+```
+# Abre o arquivo como super usuário.
+sudo gedit /etc/apt/sources.list
+```
+
+Adicione a linha abaixo no final do arquivo. Salve, feche e volte ao
+terminal.
+```
+# Modelo de repositório e distribuição Ubuntu.
+deb https://<my.favorite.cran.mirror>/bin/linux/ubuntu <version>/
+
+# Usando o repositório do C3SL para o Ubuntu Xenial Xerus (16.04)
+deb http://cran-r.c3sl.ufpr.br/bin/linux/ubuntu xenial/
+```
+
+No termianal atualize a lista de repositórios (`fetch`) e instale o
+`r-babe`.
+```
+sudo apt-get update
+sudo apt-get install r-base
+```
+
+Depois de instalar o `r-base` pelo terminal, você já terá o R na versão
+mais enxuta, ou seja, aquela com os pacotes recomentados apenas. Os
+demais pacotes podem ser instalados de dentro do R, com
+`install.packages()`, como será mostrado a frente.
+
+# Instalação do RStudio
+
+O [RStudio] talvez seja o único editor específico multiplataforma para o
+R. O RStudio é bastante fácil de usar e por isso é recomendado para
+aqueles que estão começão a trabalhar com R.
+
+Na [área de downloads] do site do RStudio, pode-se baixar os
+instaladores para Ubuntu (`.deb`), Windows (`.exe`) e MAC OS X (`.dmg`)
+além de Fedora, Redhat e Suse (`.rpm`).
+
+O executável `.exe` do Windows é de simples instalação. Da mesma forma,
+com o arquivo `.deb` para Ubuntu, o RStudio é instalado por meio de
+interface gráfica.
+
+Pode-se trabalhar no R com outros editores. A lista abaixo
+
+  1. [Emacs] com o pacote [ESS] (Emacs Speaks Statistis).
+  2. [Vim] com o plugin [Nvim-R].
+  3. [Tinn-R].
+  4. [Eclipse] com [StatET].
+  5. [Sublime Text].
+  6. [Gedit] com [Rgedit] plugin.
+
+Creio que os mais utilizados sejam o RStudio com os três primeiros da
+lista, não necessariamente nesta ordem. Viste as homepages para saber
+como usar estes editores para trabalhar com o R.
+
+O Emacs[^1], junto com o Vi, são os editores mais antigos dessa lista
+conforme o [texteditors.org]. Como não são editores de R, pois surgiram
+17 anos do R, e por serem altamente customizáveis, a maioria dos
+desenvolvedores no começo da história do R, e muitos até hoje, fazem uso
+destes editores.
+
+# Instalação do Emacs
+
+Para instalar o Emacs no Ubuntu, execute cada linha do código abaixo em
+um terminal. O Emacs atualmente está na versão 24.5.1.
+
+```
+sudo apt-get install build-essential
+sudo apt-get install emacs emacs-goodies-el ess
+```
+```{r, engine = "sh", comments = NA}
+emacs --version
+```
+
+Usuários do Windows é recomendado instalar o Emacs modificado do
+[Vincent Goulet] que inclui o ESS.
+
+<!-- # Referências Bibliográficas -->
+
+<!------------------------------------------- -->
+
+[RStudio]: https://www.rstudio.com/
+[área de downloads]: https://www.rstudio.com/products/rstudio/download/
+[Tinn-R]: https://sourceforge.net/projects/tinn-r/
+[Emacs]: https://www.gnu.org/software/emacs/
+[ESS]: https://ess.r-project.org/
+[Vim]: http://www.vim.org/about.php
+[Nvim-R]: http://www.vim.org/scripts/script.php?script_id=2628
+[Eclipse]: http://www.eclipse.org/eclipse/
+[StatET]: http://www.walware.de/goto/statet
+[Sublime Text]: http://www.sublimetext.com/
+[Rgedit]: http://rgedit.sourceforge.net/
+[Gedit]: https://wiki.gnome.org/Apps/Gedit
+[texteditors.org]: http://texteditors.org/cgi-bin/wiki.pl?Timeline
+[Vincent Goulet]: http://vgoulet.act.ulaval.ca/en/emacs/
+
+[^1]: O Emacs é o editor com o qual comecei a usar o R quando migrei
+   para o Linux em 2008. Como o passar do tempo, naturalmente fui me
+   interessando mais pelo Emacs e por LISP, a liguagem usada para fazer
+   pacotes para o Emacs. Meus arquivos de configuração do Emacs estão
+   hoje disponíveis em <https://github.com/walmes/emacs>.

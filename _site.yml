@@ -1,0 +1,41 @@
+name: "CE-074"
+output_dir: "."
+exclude: ["README.md"]
+output:
+  html_document:
+    template: config/template.html
+    theme: united
+    highlight: default
+    code_folding: hide
+    number_sections: true
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    includes:
+      in_header: config/MathJax.html
+      before_body: config/header.html
+      after_body: config/footer.html
+    css: config/style.css
+navbar:
+  title: "PAER"
+  left:
+    - icon: fa-home
+      href: index.html
+    - text: "Capítulos"
+      menu:
+      - text: "Download e Instalação"
+        href: cap01-instal.html
+#    - icon: fa-folder
+#    - icon: fa-download
+  right:
+    - icon: fa-user
+      href: https://www.researchgate.net/profile/Walmes_Zeviani2
+    - text: GitLab
+      icon: fa-git-square fa-lg
+      href: https://gitlab.c3sl.ufpr.br/walmes/paer
+    - text: GitHub
+      icon: fa-github fa-lg
+      href: https://github.com/walmes/paer
+# http://fontawesome.io/icons/

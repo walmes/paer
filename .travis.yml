@@ -1,0 +1,35 @@
+branches:
+  only:
+    - master
+    - gh-pages
+
+# Environment variables.
+env:
+  - R_LIBS_USER=~/R
+
+# Install dependencies.
+install:
+  - sudo apt-add-repository -y ppa:marutter/rdev
+  - sudo apt-get update
+  - curl -L -O https://download1.rstudio.org/rstudio-1.0.136-amd64.deb
+  - dpkg -i rstudio-1.0.136-amd64.deb
+  - sudo cp rstudio-0.99.892/bin/pandoc/pandoc /usr/local/bin/pandoc
+  - sudo cp rstudio-0.99.892/bin/pandoc/pandoc-citeproc /usr/local/bin/pandoc-citeproc
+  - which pandoc
+  - which pandoc-citeproc
+  - pandoc --version
+  - sudo apt-get install r-base
+  - sudo apt-get install tree
+  - "[ ! -d ~/R ] && mkdir ~/R"
+  - R --version
+  - Rscript -e '.libPaths(); sessionInfo()'
+  - Rscript -e 'install.packages(c("devtools", "roxygen2", "revealjs", "latticeExtra"), type = "source", repos = "http://cran-r.c3sl.ufpr.br/")'
+  - Rscript -e 'devtools::install_github("yihui/knitr")'
+  - Rscript -e 'devtools::install_github("rstudio/rmarkdown")'
+
+# Build site
+before_script:
+  - rm -rf figures
+
+script:
+  - Rscript -e 'rmarkdown::render_site()'
