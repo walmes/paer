@@ -24,7 +24,7 @@ Depends:
     plyr,
     reshape,
     reshape2,
-    multcomp
+    multcomp,
     nlme,
     rootSolve
 VignetteBuilder: knitr
