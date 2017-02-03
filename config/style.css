@@ -295,6 +295,13 @@ code {
     background-color: none;
 }
 
+p code,
+table code {
+    padding: 0;
+    font-size: 80%;
+    background-color: unset;
+}
+
 /* R input */
 pre, code {
     /* border-radius: 3px; */
