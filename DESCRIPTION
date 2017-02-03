@@ -12,8 +12,7 @@ BugReports: https://github.com/walmes/paer/issues
 LazyData: true
 Encoding: UTF-8
 Depends:
-    R (>= 3.2.3),
-    wzRfun (>= 0.75)
+    wzRfun,
     lattice,
     latticeExtra,
     knitr,
