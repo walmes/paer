@@ -1,0 +1,33 @@
+Package: PAER
+Title: Planejamento e Análise de Experimentos com R
+Version: 0.0-1
+Date: 2017-02-03
+Authors@R: as.person(c(
+    "Walmes Marques Zeviani <walmes@ufpr.br> [cre,aut]"))
+Description: PAER é um Curso de Planejamento e Análise de Experimentos
+   com o R voltado para alunos de graduação e pós graduação.
+License: GPL-3
+URL: https://github.com/walmes/paer
+BugReports: https://github.com/walmes/paer/issues
+LazyData: true
+Encoding: UTF-8
+Depends:
+    R (>= 3.2.3),
+    wzRfun (>= 0.75)
+    lattice,
+    latticeExtra,
+    knitr,
+    rmarkdown,
+    captioner,
+    doBy,
+    MASS,
+    car,
+    plyr,
+    reshape,
+    reshape2,
+    multcomp
+    nlme,
+    rootSolve
+VignetteBuilder: knitr
+RoxygenNote: 5.0.1
+Remotes: walmes/wzRfun
