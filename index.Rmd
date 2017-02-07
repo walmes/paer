@@ -7,7 +7,7 @@ output:
   html_document:
     toc: true
     number_sections: true
-# http://rmarkdown.rstudio.com/rmarkdown_websites.html    
+# http://rmarkdown.rstudio.com/rmarkdown_websites.html
 ---
 
 # Ementa do Curso
@@ -135,3 +135,41 @@ x <- paste(refs, collapse = ", ")
 nocite: |
   `r x`
 ...
+
+```{r, eval = FALSE, include = FALSE}
+system("grep -E -r -h 'library\\([[:alnum:]]+\\)' --include=*.R --include=*.Rmd")
+
+cmd <- c("grep -rh 'library' --include=*.R --include=*.Rmd",
+         "sed -n 's/^library(\\(.*\\))/\\1/p'")
+a <- system(paste(cmd, collapse = " | "), intern = TRUE)
+a
+
+cmd <- c("grep -rh '::' --include=*.R --include=*.Rmd",
+         "sed -n 's/\\([[:alnum:]]+\\)::/\\1/p'")
+b <- system(paste(cmd, collapse = " | "), intern = TRUE)
+b
+
+system("grep -hr '::' --include=*.R --include=*.Rmd")
+system("sed -n 's/^.*\\([[:alnum:]]+\\)::.*/\\1/p' config/setup.R")
+system("sed -n 's/^.*\\([^[:blank:]]+\\)::.*/\\1/p' config/setup.R")
+
+c(a, b)
+
+library(devtools)
+
+pkg <- strsplit(read.dcf("DESCRIPTION")[, "Depends"], ",")$Depends
+pkg <- sub("\\W", "", pkg)
+for (p in pkg) {
+    install.packages(p, repos = "http://cran-r.c3sl.ufpr.br/")
+}
+
+devtools::package_deps()
+
+getOption("repos")
+options(repos = "http://cran-r.c3sl.ufpr.br/")
+
+install_deps(repos = "http://cran-r.c3sl.ufpr.br/", force = TRUE)
+install_deps(force = TRUE)
+
+install_deps
+```

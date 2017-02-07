@@ -1,0 +1,653 @@
+<!-- Baseado no arquivo: 
+  /usr/lib/R/site-library/rmarkdown/rmd/h/default.html
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt.BR" xml:lang="pt.BR">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Primeira Sessão</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      "HTML-CSS": {
+          scale: 85,
+          availableFonts: ["TeX"],
+      }
+  });
+</script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="config/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<script src="/codefolding.js"></script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.9em;
+  padding-left: 5px;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+  padding-left: 10px;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PAER</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Capítulos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cap01-instal.html">Download e Instalação</a>
+    </li>
+    <li>
+      <a href="cap02-primse.html">Primeira Sessão</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.researchgate.net/profile/Walmes_Zeviani2">
+    <span class="fa fa-user"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/walmes/paer">
+    <span class="fa fa-github fa-lg"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<style type="text/css">
+div.header {
+    margin-top: 20px;
+    border-bottom: 1px solid #BCBCBC;
+    border-top: none;
+}
+table.header {
+    margin-top: 10px;
+    border-collapse: unset;
+}
+table.header > tbody {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+</style>
+
+<table class="header" width="100%" align="center">
+  <tr>
+    <td align="left" valign="bottom" width="90px">
+      <img src="config/newuser-logo.png" width="100%" />
+    </td>
+    <td align="left" valign="top">
+      <div class="header">
+        <h4 style="font-size: 20px; margin: 10px auto 0 10px">
+          Planejamento e Análise de Experimentos com R
+        </h4>
+        <h5 style="margin: 0px 0px 10px 10px">
+          <a href="https://walmes.github.io/paer">
+            <code>walmes.github.io/paer</code>
+          </a>
+        </h5>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Primeira Sessão</h1>
+
+</div>
+
+
+<div id="recursos-dos-rstudio" class="section level1">
+<h1><span class="header-section-number">1</span> Recursos dos RStudio</h1>
+<p>O RStudio é uma IDE<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> ou seja, é um ambiente de desenvolvimento integrado para trabalhar com o R. <strong>O RStudio não é o R</strong>.</p>
+<p>A Figura 1 mostra a janela do RStudio na qual os números em círculos vermelhos destacam os principais elementos, descritos a seguir.</p>
+<ol style="list-style-type: decimal">
+<li>É o menu e a barra de tarefas. Os menus permitem abrir arquivos, salvar, fazer configurações, abortar a sessão, instalar pacotes, etc.</li>
+<li>É a área chamada de script onde escreve as instruções (comandos de entrada) e comentários.</li>
+<li>É a área chamada de console onde as instruções são avaliadas e os resultados são exibidos. Pode-se escrever instruções diretamente no console.</li>
+<li>É uma área que mostra o ambiente, ou seja, os objetos criados na memória e também o histórico de comandos.</li>
+<li>É a área onde estão a documentação, a lista de pacotes e onde são exibidos os gráficos.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="img/RStudio-1.0.136.png" alt="Figura  1: RStudio IDE (versão 1.0.136). 1) menu e barra de tarefas, 2) script, 3) console, 4) histórico e ambiente e 5) documentação, diretório e gráficos." width="800px" />
+<p class="caption">
+Figura 1: RStudio IDE (versão 1.0.136). 1) menu e barra de tarefas, 2) script, 3) console, 4) histórico e ambiente e 5) documentação, diretório e gráficos.
+</p>
+</div>
+</div>
+<div id="instrucoes-e-comentarios-no-codigo" class="section level1">
+<h1><span class="header-section-number">2</span> Instruções e Comentários no Código</h1>
+<p>A forma como se trabalha com R é a chamada REPL de <em>read-eval-print-loop</em> de ler-avaliar-exibir-ciclar. Ou seja, o ciclo é fazer o console ler as instruções, avaliá-las, exibir o resultado e repetir. Outros softwares trabalham no modo <em>batch</em> (em lote) que é ler todas as instruções de uma vez e retornar todos os resultados. O modo REPL é o tipo “pergunta-responde” mas o R também pode ser usado no modo <em>batch</em>.</p>
+<p>Uma das primeiras coisas a se ter conhecimento é sobre como escrever instruções. Primeiro, uma instrução pode ocupar várias linhas desde que seja indicado a continuidade. Uma linha pode conter várias instruções desde que se use o <code>;</code> para quebrar linha explicitamente.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Uma instrução em duas linhas.</span>
+<span class="dv">2</span> +<span class="st"> </span><span class="dv">5</span> +
+<span class="st">    </span><span class="dv">9</span> -<span class="st"> </span><span class="dv">13</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Duas instruções em uma linha.</span>
+<span class="dv">23</span> -<span class="st"> </span><span class="dv">11</span>; <span class="dv">18</span> *<span class="st"> </span><span class="dv">45</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<pre><code>## [1] 810</code></pre>
+<p>Note que além das instruções foram inseridos comentários sobre elas para descreve-las. Os comentários no R são demarcados com o sinal de <code>#</code> antes do comentário.</p>
+<p>O prompt do console tem 3 estados. O <em>prompt ativo</em> é quando o sinal <code>&gt;</code> está aparecendo na margem esquerda do console. Ele indica que o console está pronto para receber instruções. O <em>prompt ocupado</em> é quando nenhum sinal é exibido na margem esquerda e indica que o console está em processamento e assim que terminar voltará a ficar ativo. O <em>prompt em aberto</em> é quando o sinal de <code>+</code> aparece na margem esquerda e indica que uma instrução completa ainda não foi sumetida. Isso é o que se vê quando uma instrução ocupa várias linhas.</p>
+</div>
+<div id="consulta-a-documentacao" class="section level1">
+<h1><span class="header-section-number">3</span> Consulta à Documentação</h1>
+<p>No R existem três recursos básicos para consultar a documentação: <code>help()</code>, <code>help.search()</code> e <code>RSiteSearch()</code>. A função <code>help()</code> é usada para consultar a documentação de funções (ou objetos) existentes. Na maoria dos editores, a documentação é exibida em formato texto no console. Com a opção <code>help_type = &quot;html&quot;</code> a documentação é exibida no navegador padrão conforme visto na Figura 2.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(mean, <span class="dt">help_type =</span> <span class="st">&quot;html&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="img/r-doc-arithmetic-mean.png" alt="Figura  2: Documentação da função `mean` do pacote `stats`. Número em círculos vermelhos são: 1) nome da função e do pacote a qual pertence, 2) descrição da função, 3) formas de uso da função, 4) descrição dos argumentos da função, 5) descrição do valor retornado pela função, 6) referências bibligráficas relacionadas à função, 7) funções relacionadas e 8) código com exemplos de uso da função." width="700px" />
+<p class="caption">
+Figura 2: Documentação da função <code>mean</code> do pacote <code>stats</code>. Número em círculos vermelhos são: 1) nome da função e do pacote a qual pertence, 2) descrição da função, 3) formas de uso da função, 4) descrição dos argumentos da função, 5) descrição do valor retornado pela função, 6) referências bibligráficas relacionadas à função, 7) funções relacionadas e 8) código com exemplos de uso da função.
+</p>
+</div>
+<p>A função <code>help.search()</code> faz uma busca em toda documentação local sobre coisas relacionadas ao termo de busca. O termo de busca não precisa ser uma função conhecida mas o nome de um método ou pessoa, por exemplo. O resultado é uma lista com nome de funções e títulos. O código abaixo mostra o resultado para o busca sobre “latin square”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help.search</span>(<span class="st">&quot;latin square&quot;</span>)</code></pre></div>
+<pre><code>Demos with name or title matching ‘latin square’ using fuzzy matching:
+
+
+ScottKnott::LSD         Example of Latin Squares Design (LSD)
+
+
+Type &#39;demo(PKG::FOO)&#39; to run demonstration &#39;PKG::FOO&#39;.
+
+
+
+Help files with alias or concept or title matching ‘latin square’ using
+fuzzy matching:
+
+
+agricolae::design.graeco
+                        Graeco - latin square design
+agricolae::design.lsd   Latin Square Design
+agricolae::design.youden
+                        Incomplete Latin Square Design
+agricolae::melon        Data of yield of melon in a Latin square
+                        experiment
+asbio::garments         Garment Latin square data from Littell et al.
+                        (2002)
+crossdes::des.MOLS      Construction of Designs Based on Mutually
+                        Orthogonal Latin Squares
+crossdes::MOLS          Construction of Complete Sets of Mutually
+                        Orthogonal Latin Squares
+ExpDes::latsd           Latin Square Design
+ScottKnott::LSD         Latin Squares Design (LSD)
+
+
+Type &#39;?PKG::FOO&#39; to inspect entries &#39;PKG::FOO&#39;, or &#39;TYPE?PKG::FOO&#39; for
+entries like &#39;PKG::FOO-TYPE&#39;.</code></pre>
+<p>Por fim, como o próprio nome sugere, a função <code>RSiteSearch()</code> faz buscas relacionadas ao termo na Web. A vantagem é que a busca é sobre todos os pacotes oficiais do R, não apenas os que você tem instalado. Ao chamar a função, o navegador abre em uma página com prefixo <a href="http://search.r-project.org" class="uri">http://search.r-project.org</a> conforme visto na Figura 3. É possível editar o termo de busca e outras opções na página. Em cada item encontrado na busca existe uma url para a respectiva documentação. Fazem parte da url o nome do pacote e o nome da função.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RSiteSearch</span>(<span class="st">&quot;Scott-Knott&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="img/r-site-search-scott-knott.png" alt="Figura  3: Resultado da busca pelo termo &quot;Skott-Knott&quot;. Os números em círculos vermelhos indicam: 1) o campo com o termo de busca, 2) opções de busca e visualização dos resultados, 3) tipos de resultados encontrados, 4) termo de busca destacado no resultato e 5) url da documentação relativa ao item encontrado." width="700px" />
+<p class="caption">
+Figura 3: Resultado da busca pelo termo “Skott-Knott”. Os números em círculos vermelhos indicam: 1) o campo com o termo de busca, 2) opções de busca e visualização dos resultados, 3) tipos de resultados encontrados, 4) termo de busca destacado no resultato e 5) url da documentação relativa ao item encontrado.
+</p>
+</div>
+<p>Além destes três simples mecanísmos, existe um pacote chamado <a href="https://cran.r-project.org/web/packages/sos/"><code>sos</code></a> também recomenado para fazer buscas. Acesse a documentação para saber mais.</p>
+</div>
+<div id="instalacao-de-pacotes" class="section level1">
+<h1><span class="header-section-number">4</span> Instalação de Pacotes</h1>
+<p>O R é feito de pacotes. Atualmente existem mais de 10 mil <a href="https://cran.r-project.org/web/packages/">pacotes</a> oficiais disponíveis para uso no CRAN. Além destes, existem pacotes no <a href="https://www.bioconductor.org/packages/release/BiocViews.html#___Software">Bioconductor</a> voltados para a bioinformática e os pacotes não oficiais no <a href="https://github.com/trending/r">Github</a>.</p>
+<p>Pacotes oficiais são instalados com a função <code>install.packages()</code>. A função <code>update.packages()</code> serve para a atualizar a lista de pacotes com as versões mais recentes disponíveis no repositório. A lista de pacotes instalados é obtida com a <code>installed.packages()</code>. O caminho padrão para instalação de pacotes é obtido e modificado com a <code>.libPaths()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>,
+                 <span class="dt">repos =</span> <span class="st">&quot;http://cran-r.c3sl.ufpr.br/&quot;</span>)</code></pre></div>
+<pre><code>Installing package into ‘/home/walmes/R/x86_64-pc-linux-gnu-library/3.3’
+(as ‘lib’ is unspecified)
+trying URL &#39;http://cran-r.c3sl.ufpr.br/src/contrib/agricolae_1.2-4.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 632685 bytes (617 KB)
+==================================================
+downloaded 617 KB
+
+* installing *source* package ‘agricolae’ ...
+** package ‘agricolae’ successfully unpacked and MD5 sums checked
+** R
+** data
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+* DONE (agricolae)
+
+The downloaded source packages are in
+    ‘/tmp/RtmpO011Zn/downloaded_packages’</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Atualiza os pacotes.</span>
+<span class="kw">update.packages</span>()
+
+<span class="co"># Retorna a lista de pacotes instalados.</span>
+<span class="kw">installed.packages</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">.libPaths</span>()</code></pre></div>
+<pre><code>## [1] &quot;/home/walmes/R/x86_64-pc-linux-gnu-library/3.3&quot;
+## [2] &quot;/usr/local/lib/R/site-library&quot;                 
+## [3] &quot;/usr/lib/R/site-library&quot;                       
+## [4] &quot;/usr/lib/R/library&quot;</code></pre>
+<p>O pacote <code>devtools</code> possui funções para instalar pacotes de repositórios com controle de versão. A função <code>install_github()</code> permite instalar pacotes R disponíveis no Github. Abaixo está o exemplo de como instalar o pacote <a href="https://github.com/pet-estatistica/labestData">labestData</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&quot;pet-estatistica/labestData&quot;</span>)</code></pre></div>
+</div>
+<div id="salvar-e-carregar-uma-sessao" class="section level1">
+<h1><span class="header-section-number">5</span> Salvar e Carregar uma Sessão</h1>
+<p>Quando fazemos análise de dados no R, na maioria das vezes é suficiente salvarmos o script com as intruções de análise. Isso porque as análises estatísticas usuais como regressão e análise de variância são processadas em frações de segundos. No entanto, alguns procedimentos de análise são mais demorados, como fazer krigagem malha fina em geoestatística ou fazer estudos de simulação.</p>
+<p>Salvar uma sessão é salvar os objetos criados para que em uma sessão futura eles não precisem ser criados novamente. Isso é bastante útil para estudos de simulação ou qualquer método de computação intensiva pois evita que se gastem horas recriando objetos.</p>
+<p>Depois de criar objetos em uma sessão, ela pode ser salva usando a função <code>save.image()</code>. Essa função um arquivo binário, normalmente de extensão <code>.RData</code> ou <code>.rda</code>, que contém os objetos da sessão. Ao carregar o arquivo com <code>load()</code>, os objetos são restaurados.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Criando objetos.</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">30</span>
+y &lt;-<span class="st"> </span><span class="kw">sample</span>(LETTERS[<span class="dv">1</span>:<span class="dv">5</span>], <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># Lista os objetos presentes na memória.</span>
+<span class="kw">ls</span>()
+
+<span class="co"># Salva os objetos.</span>
+<span class="kw">save.image</span>(<span class="st">&quot;objetos.RData&quot;</span>)
+
+<span class="co"># Remove todos os objetos da sessão.</span>
+<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+
+<span class="co"># Nova sessão que carrega os objetos criados.</span>
+<span class="kw">load</span>(<span class="st">&quot;objetos.RData&quot;</span>)</code></pre></div>
+<p>A função <code>save()</code> serve para salvar apenas alguns objetos e não todos. O nome dos objetos devem ser informados, logicamente.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(x, y, iris, <span class="dt">file =</span> <span class="st">&quot;alguns-objetos.RData&quot;</span>)</code></pre></div>
+</div>
+<div id="blogs-e-listas-de-discussao" class="section level1">
+<h1><span class="header-section-number">6</span> Blogs e Listas de Discussão</h1>
+<p>As 24 listas de dicussão do projeto R estão disponíveis para consulta no <a href="http://r-project.markmail.org/">MarkMail</a>. Na Figura 4 verifica-se uma diminuição do número de mensagens nas listas a partir de 2010. Acredita-se que o número de livros, blogs e material para consulta nas listas tenham diminuído o número de mensagem enviadas para as listas de discussão.</p>
+<div class="figure" style="text-align: center">
+<img src="img/MarkMail.png" alt="Figura  4: Página das listas de discussão do projeto R no MarkMail." width="100%" />
+<p class="caption">
+Figura 4: Página das listas de discussão do projeto R no MarkMail.
+</p>
+</div>
+<p>Qualquer pessoa pode-se cadastras nas listas de discursão do projeto R. A maior e mais geral delas é a R-help.</p>
+<p>No Brasil, a lista de discussão de R é a <a href="https://listas.inf.ufpr.br/cgi-bin/mailman/listinfo/r-br">R-BR</a>. Basta preencher o formulário de inscrição para começar a receber e enviar conteúdo para a lista. Para consultar a lista, visite o espelho dela no <a href="http://r-br.2285057.n4.nabble.com/">nabble</a>.</p>
+<p>O <a href="https://www.r-bloggers.com/">R-bloggers</a> é blog agregador de blogs sobre R. Ele exibe as matérias publicadas em mais de 700 blogs de R em vários idiomas. Uma lista de blogs nacionais está disponível em: <a href="https://marcosvital.github.io/blogs-de-R-no-Brasil/" class="uri">https://marcosvital.github.io/blogs-de-R-no-Brasil/</a>.</p>
+<!-- # Referências Bibliográficas -->
+<!------------------------------------------- -->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>IDE é a sigla para <em>integrated development environment</em> ou ambiente de desenvolvimento integrado.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+<style type="text/css">
+hr.footer {
+    border-top: 1px solid #BCBCBC;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+table.footer {
+    margin-bottom: 10px;
+    border-bottom: none;
+    border-collapse: unset;
+}
+table.footer > tbody {
+    border-bottom: 0px;
+}
+div.tocify-extend-page {
+	height: 10px !important;
+}
+</style>
+
+<hr class="footer"/>
+<center>
+  <table class="footer" width="100%">
+    <tr>
+      <td width="60%">
+	<h4><em>Planejamento e Análise de Experimentos com R</em></h4>
+      </td>
+      <td width="40%" align="right">
+        <a href="https://walmes.github.io/paer">
+          walmes.github.io/paer
+      </a></td>
+    </tr>
+  </table>
+</center>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+
+</body>
+</html>
