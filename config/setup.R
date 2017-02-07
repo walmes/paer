@@ -49,5 +49,5 @@ library(captioner)
 
 tbn_ <- captioner(prefix = "Tabela")
 fgn_ <- captioner(prefix = "Figura")
-tbl_ <- function(label) tb_nums(label, display = "cite")
-fgl_ <- function(label) fg_nums(label, display = "cite")
+tbl_ <- function(label) tbn_(label, display = "cite")
+fgl_ <- function(label) fgn_(label, display = "cite")
