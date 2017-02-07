@@ -27,6 +27,8 @@ navbar:
       menu:
       - text: "Download e Instalação"
         href: cap01-instal.html
+      - text: "Primeira Sessão"
+        href: cap02-primse.html
 #    - icon: fa-folder
 #    - icon: fa-download
   right:

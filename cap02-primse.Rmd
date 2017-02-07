@@ -1,0 +1,270 @@
+---
+title: "Primeira Sessão"
+csl: config/ABNT-UFPR-2011-Mendeley.csl
+lang: pt.BR
+output:
+  html_document:
+    code_folding: show
+---
+
+```{r, include = FALSE}
+source("config/setup.R")
+```
+
+# Recursos dos RStudio
+
+O RStudio é uma IDE[^1] ou seja, é um ambiente de desenvolvimento
+integrado para trabalhar com o R. **O RStudio não é o R**.
+
+A `r fgl_("rstudio")` mostra a janela do RStudio na qual os números em
+círculos vermelhos destacam os principais elementos, descritos a seguir.
+
+  1. É o menu e a barra de tarefas. Os menus permitem abrir arquivos,
+     salvar, fazer configurações, abortar a sessão, instalar pacotes,
+     etc.
+  2. É a área chamada de script onde escreve as instruções (comandos de
+     entrada) e comentários.
+  3. É a área chamada de console onde as instruções são avaliadas e os
+     resultados são exibidos. Pode-se escrever instruções diretamente no
+     console.
+  4. É uma área que mostra o ambiente, ou seja, os objetos criados na
+     memória e também o histórico de comandos.
+  5. É a área onde estão a documentação, a lista de pacotes e onde são
+     exibidos os gráficos.
+
+```{r, echo = FALSE, out.width = "800px",fig.cap = cap}
+cap <- "RStudio IDE (versão 1.0.136). 1) menu e barra de tarefas, 2) script, 3) console, 4) histórico e ambiente e 5) documentação, diretório e gráficos."
+cap <- fgn_("rstudio", cap)
+include_graphics("img/RStudio-1.0.136.png")
+```
+
+# Instruções e Comentários no Código
+
+A forma como se trabalha com R é a chamada REPL de
+*read-eval-print-loop* de ler-avaliar-exibir-ciclar. Ou seja, o ciclo é
+fazer o console ler as instruções, avaliá-las, exibir o resultado e
+repetir. Outros softwares trabalham no modo *batch* (em lote) que é ler
+todas as instruções de uma vez e retornar todos os resultados. O modo
+REPL é o tipo "pergunta-responde" mas o R também pode ser usado no modo
+*batch*.
+
+Uma das primeiras coisas a se ter conhecimento é sobre como escrever
+instruções. Primeiro, uma instrução pode ocupar várias linhas desde que
+seja indicado a continuidade. Uma linha pode conter várias instruções
+desde que se use o `;` para quebrar linha explicitamente.
+
+```{r}
+# Uma instrução em duas linhas.
+2 + 5 +
+    9 - 13
+
+# Duas instruções em uma linha.
+23 - 11; 18 * 45
+```
+
+Note que além das instruções foram inseridos comentários sobre elas para
+descreve-las. Os comentários no R são demarcados com o sinal de `#`
+antes do comentário.
+
+O prompt do console tem 3 estados. O *prompt ativo* é quando o sinal `>`
+está aparecendo na margem esquerda do console. Ele indica que o console
+está pronto para receber instruções. O *prompt ocupado* é quando nenhum
+sinal é exibido na margem esquerda e indica que o console está em
+processamento e assim que terminar voltará a ficar ativo. O *prompt em
+aberto* é quando o sinal de `+` aparece na margem esquerda e indica que
+uma instrução completa ainda não foi sumetida. Isso é o que se vê quando
+uma instrução ocupa várias linhas.
+
+# Consulta à Documentação
+
+No R existem três recursos básicos para consultar a documentação:
+`help()`, `help.search()` e `RSiteSearch()`. A função `help()` é usada
+para consultar a documentação de funções (ou objetos) existentes. Na
+maoria dos editores, a documentação é exibida em formato texto no
+console. Com a opção `help_type = "html"` a documentação é exibida no
+navegador padrão conforme visto na `r fgl_("r-doc-mean")`.
+
+```{r, eval = FALSE}
+help(mean, help_type = "html")
+```
+```{r, echo = FALSE, out.width = "700px",fig.cap = cap}
+cap <- "Documentação da função `mean` do pacote `stats`. Número em círculos vermelhos são: 1) nome da função e do pacote a qual pertence, 2) descrição da função, 3) formas de uso da função, 4) descrição dos argumentos da função, 5) descrição do valor retornado pela função, 6) referências bibligráficas relacionadas à função, 7) funções relacionadas e 8) código com exemplos de uso da função."
+cap <- fgn_("r-doc-mean", cap)
+include_graphics("img/r-doc-arithmetic-mean.png")
+```
+
+A função `help.search()` faz uma busca em toda documentação local sobre
+coisas relacionadas ao termo de busca. O termo de busca não precisa ser
+uma função conhecida mas o nome de um método ou pessoa, por exemplo. O
+resultado é uma lista com nome de funções e títulos. O código abaixo
+mostra o resultado para o busca sobre "latin square".
+
+```{r, eval = FALSE}
+help.search("latin square")
+```
+```{r, echo = FALSE, engine = "sh", comment = NA}
+Rscript -e 'help.search("latin square")'
+```
+
+Por fim, como o próprio nome sugere, a função `RSiteSearch()` faz buscas
+relacionadas ao termo na Web. A vantagem é que a busca é sobre todos os
+pacotes oficiais do R, não apenas os que você tem instalado. Ao chamar a
+função, o navegador abre em uma página com prefixo
+<http://search.r-project.org> conforme visto na
+`r fgl_("r-site-search-sk")`.
+É possível editar o termo de busca e outras opções na página. Em cada
+item encontrado na busca existe uma url para a respectiva
+documentação. Fazem parte da url o nome do pacote e o nome da função.
+
+```{r,eval = FALSE}
+RSiteSearch("Scott-Knott")
+```
+```{r, echo = FALSE, out.width = "700px",fig.cap = cap}
+cap <-
+    "Resultado da busca pelo termo \"Skott-Knott\". Os números em círculos vermelhos indicam: 1) o campo com o termo de busca, 2) opções de busca e visualização dos resultados, 3) tipos de resultados encontrados, 4) termo de busca destacado no resultato e 5) url da documentação relativa ao item encontrado."
+cap <- fgn_("r-site-search-sk", cap)
+include_graphics("img/r-site-search-scott-knott.png")
+```
+
+Além destes três simples mecanísmos, existe um pacote chamado [`sos`]
+também recomenado para fazer buscas. Acesse a documentação para saber
+mais.
+
+```{r, eval = FALSE, include = FALSE}
+library(sos)
+
+???"principal  components analysis"
+```
+
+# Instalação de Pacotes
+
+O R é feito de pacotes. Atualmente existem mais de 10 mil [pacotes]
+oficiais disponíveis para uso no CRAN. Além destes, existem pacotes no
+[Bioconductor] voltados para a bioinformática e os pacotes não oficiais
+no [Github].
+
+Pacotes oficiais são instalados com a função `install.packages()`. A
+função `update.packages()` serve para a atualizar a lista de pacotes com
+as versões mais recentes disponíveis no repositório. A lista de pacotes
+instalados é obtida com a `installed.packages()`. O caminho padrão para
+instalação de pacotes é obtido e modificado com a `.libPaths()`.
+
+```{r, eval = FALSE}
+install.packages("agricolae",
+                 repos = "http://cran-r.c3sl.ufpr.br/")
+```
+```{r, echo = FALSE, engine = "sh", comment = NA, cache = TRUE}
+Rscript -e 'install.packages("agricolae", repos = "http://cran-r.c3sl.ufpr.br/")'
+```
+
+```{r, eval = FALSE}
+# Atualiza os pacotes.
+update.packages()
+
+# Retorna a lista de pacotes instalados.
+installed.packages()
+```
+```{r}
+.libPaths()
+```
+
+O pacote `devtools` possui funções para instalar pacotes de repositórios
+com controle de versão. A função `install_github()` permite instalar
+pacotes R disponíveis no Github. Abaixo está o exemplo de como instalar
+o pacote [labestData].
+
+```{r, eval = FALSE}
+library(devtools)
+install_github("pet-estatistica/labestData")
+```
+
+# Salvar e Carregar uma Sessão
+
+Quando fazemos análise de dados no R, na maioria das vezes é suficiente
+salvarmos o script com as intruções de análise. Isso porque as análises
+estatísticas usuais como regressão e análise de variância são
+processadas em frações de segundos. No entanto, alguns procedimentos de
+análise são mais demorados, como fazer krigagem malha fina em
+geoestatística ou fazer estudos de simulação.
+
+Salvar uma sessão é salvar os objetos criados para que em uma sessão
+futura eles não precisem ser criados novamente. Isso é bastante útil
+para estudos de simulação ou qualquer método de computação intensiva
+pois evita que se gastem horas recriando objetos.
+
+Depois de criar objetos em uma sessão, ela pode ser salva usando a
+função `save.image()`. Essa função um arquivo binário, normalmente de
+extensão `.RData` ou `.rda`, que contém os objetos da sessão. Ao
+carregar o arquivo com `load()`, os objetos são restaurados.
+
+```{r, eval = FALSE}
+# Criando objetos.
+x <- 1:30
+y <- sample(LETTERS[1:5], size = 20, replace = TRUE)
+
+# Lista os objetos presentes na memória.
+ls()
+
+# Salva os objetos.
+save.image("objetos.RData")
+
+# Remove todos os objetos da sessão.
+rm(list = ls())
+
+# Nova sessão que carrega os objetos criados.
+load("objetos.RData")
+```
+
+A função `save()` serve para salvar apenas alguns objetos e não todos. O
+nome dos objetos devem ser informados, logicamente.
+
+```{r, eval = FALSE}
+save(x, y, iris, file = "alguns-objetos.RData")
+```
+
+```{r, include = FALSE, eval = FALSE}
+source()
+```
+
+# Blogs e Listas de Discussão
+
+As 24 listas de dicussão do projeto R estão disponíveis para consulta no
+[MarkMail]. Na `r fgl_("markmail")` verifica-se uma diminuição do número
+de mensagens nas listas a partir de 2010. Acredita-se que o número de
+livros, blogs e material para consulta nas listas tenham diminuído o
+número de mensagem enviadas para as listas de discussão.
+
+```{r, echo = FALSE, out.width = "100%", fig.cap = cap}
+cap <-
+    "Página das listas de discussão do projeto R no MarkMail."
+cap <- fgn_("markmail", cap)
+include_graphics("img/MarkMail.png")
+```
+
+Qualquer pessoa pode-se cadastras nas listas de discursão do projeto
+R. A maior e mais geral delas é a R-help.
+
+No Brasil, a lista de discussão de R é a [R-BR]. Basta preencher o
+formulário de inscrição para começar a receber e enviar conteúdo para a
+lista. Para consultar a lista, visite o espelho dela no [nabble].
+
+O [R-bloggers] é blog agregador de blogs sobre R. Ele exibe as matérias
+publicadas em mais de 700 blogs de R em vários idiomas. Uma lista de
+blogs nacionais está disponível em:
+<https://marcosvital.github.io/blogs-de-R-no-Brasil/>.
+
+<!-- # Referências Bibliográficas -->
+
+<!------------------------------------------- -->
+[`sos`]: https://cran.r-project.org/web/packages/sos/
+[pacotes]: https://cran.r-project.org/web/packages/
+[Bioconductor]: https://www.bioconductor.org/packages/release/BiocViews.html#___Software
+[Github]: https://github.com/trending/r
+[labestData]: https://github.com/pet-estatistica/labestData
+[MarkMail]: http://r-project.markmail.org/
+[nabble]: http://r-br.2285057.n4.nabble.com/
+[R-BR]: https://listas.inf.ufpr.br/cgi-bin/mailman/listinfo/r-br
+[R-bloggers]: https://www.r-bloggers.com/
+
+[^1]: IDE é a sigla para *integrated development environment* ou
+  ambiente de desenvolvimento integrado.
