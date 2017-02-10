@@ -31,7 +31,7 @@ navbar:
         href: cap02-primse.html
     - text: "Scripts"
       icon: fa-file-text
-      href: scripts/
+      href: scripts/index.html
 #    - icon: fa-folder
 #    - icon: fa-download
   right:

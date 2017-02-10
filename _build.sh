@@ -17,6 +17,7 @@ case "$1" in
             fi
             ;;
         * )
+            [ -f "scripts/index.Rmd" ] && Rscript -e "rmarkdown::render('scripts/index.Rmd')"
             Rscript -e "rmarkdown::render_site()"
             ;;
     esac
