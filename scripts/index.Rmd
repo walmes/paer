@@ -1,0 +1,23 @@
+---
+title: "./Scripts"
+output:
+  html_document:
+    css: ../config/style.css
+---
+
+```{r, include = FALSE}
+fi <- file.info(dir())
+fi
+
+fi[, c("size", "mtime")]
+
+url <- "[%s](https://raw.githubusercontent.com/walmes/paer/master/scripts/%s)"
+fls <- rownames(fi)
+x <- sprintf(url, fls, fls)
+tb <- data.frame(Arquivo = x,
+                 Tamanho = fi$size,
+                 Modificado = fi$mtime)
+```
+```{r, echo = FALSE}
+knitr::kable(tb,  caption = "Clique no arquivo para abrir.")
+```
