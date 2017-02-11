@@ -52,7 +52,7 @@ source("config/setup.R")
         entre os modelos (e.g. o valor médio dos modelos é mais variável
         para suspensão, ou seja, a maior diferença entre os modelos é na
         suspensão?).
-6. A tabela <"http://leg.ufpr.br/~walmes/data/WorldCup2014_players.txt">
+6. A tabela <http://leg.ufpr.br/~walmes/data/WorldCup2014_players.txt>
    contém informações biométricas e esportivas sobre os jogadores de
    todos os times que disputaram a Copa do Mundo 2014 que o Brasil
    sediou. A tabela contém centenas de linhas e dezenas de variáveis que
