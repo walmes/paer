@@ -1,0 +1,86 @@
+---
+title: "Exercícios"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+---
+
+```{r, include = FALSE}
+source("config/setup.R")
+```
+
+# Parte I
+
+1. Usando o R como uma calculadora, obtenha as raízes da equação de
+   segundo grau $f(x) = 10 + 2x - 0.5x^2$ pela fórmula de Baskara.
+2. Crie a sequência regular 3, 7, 11, ..., 59. Com funções do R para
+   consulta de propriedades e seleção do objeto, obtenha:
+     a) qual o número de elementos do vetor,
+     b) qual o elemento na posição 7,
+     c) quantos elementos são maiores que 40 e
+     d) quantos estão entre 20 e 50 inclusive.
+3. A tabela <http://leg.ufpr.br/~walmes/data/hibridos.txt> contém
+   informações sobre híbridos de milho.  A descrição das variáveis está
+   dentro do arquivo na forma de comentário.  Importe a tabela no R e
+   obtenha:
+     a) as dimensões da tabela importada,
+     b) um gráfico de setores que representa a proporção de híbridos em
+        cada classe de resistência,
+     c) o rendimento médio de grãos e o desvio-padrão da amostra de
+       híbridos,
+     d) um gráfico que relacione o rendimento de graõs e o tamanho do
+        ciclo dos híbridos.
+4. A tabela <http://leg.ufpr.br/~walmes/data/renda-idh-alfab.csv> contém
+   a renda, alfabetismo e IDH dos municípios brasileiros. Faça gráficos
+   para representar:
+     a) o número de municípios por Estado,
+     b) renda mediana dos municípios por Estado,
+     c) a distribuição de renda entre os munícios para cada Estado.
+     d) a relação entre taxa de alfabetismo e renda em cada Estado.
+5. A tabela <http://leg.ufpr.br/~walmes/data/aval_carros_nota.txt>
+   contém a nota, de 0 a 10, dada pelos proprietários de 34 modelos de
+   veículos sobre 15 quesitos do automóvel. Os dados foram lidos do
+   <http://www.carrosnaweb.com.br/opiniao.asp>. Faça uma análise
+   descritiva dos dados e obtenha:
+     a) qual o modelo com maior número de opinões,
+     b) qual o modelo com maior nota média geral,
+     c) qual o modelo com a pior nota média para consumo,
+     d) para qual modelo existem maior variância entre as respostas dos
+        donos sobre o custo-benefício,
+     e) em qual dos quesitos há mais variabilidade sobre o valor médio
+        entre os modelos (e.g. o valor médio dos modelos é mais variável
+        para suspensão, ou seja, a maior diferença entre os modelos é na
+        suspensão?).
+6. A tabela <"http://leg.ufpr.br/~walmes/data/WorldCup2014_players.txt">
+   contém informações biométricas e esportivas sobre os jogadores de
+   todos os times que disputaram a Copa do Mundo 2014 que o Brasil
+   sediou. A tabela contém centenas de linhas e dezenas de variáveis que
+   estão com nome em inglês. Com as funções do R e gráficos da `lattice`
+     a) represente em um diagrama de dispersão a relação entre a altura
+        (Height) e peso (Weight) dos jogadores separados por seleção
+        (TeamName),
+     b) determine a altura média dos jogadores em cada seleção e
+        represente em um gráfico de Pareto (seleções ordenadas de acordo
+        com a altura média),
+     c) calcule o IMC (IMC = peso/altura^2^, peso em kg e altura em
+        metros) e determine a seleção com maior variação no IMC entre os
+        jogadores,
+     d) investigue se existe relação entre a proporção de bolas áereas
+        vencidas (AerialWon/(AerialWon + AerialLost)) e a altura do
+        jogador (Height).
+
+DICA: use sempre os argumentos listados abaixo durante a leitura das
+tabelas. Onde está `?` você deve modificar e manter como estão os
+demais.
+
+```
+read.table(file = ?,
+           sep = ?,
+           dec = ?,
+           skip = ?,
+           header = TRUE,
+           quote = "",
+           comment.char = "",
+           encoding =  "utf-8")
+```

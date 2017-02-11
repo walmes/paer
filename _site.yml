@@ -3,7 +3,7 @@ output_dir: "."
 exclude: ["README.md"]
 output:
   html_document:
-    template: config/template.html
+#    template: config/template.html
     theme: united
     highlight: default
     code_folding: hide
@@ -29,6 +29,8 @@ navbar:
         href: cap01-instal.html
       - text: "Primeira Sessão"
         href: cap02-primse.html
+      - text: "Exercícios"
+        href: cap90-exerc.html
     - text: "Scripts"
       icon: fa-file-text
       href: scripts/index.html

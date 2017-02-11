@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Exercícios</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      "HTML-CSS": {
+          scale: 85,
+          availableFonts: ["TeX"],
+      }
+  });
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="config/style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">PAER</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Capítulos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cap01-instal.html">Download e Instalação</a>
+    </li>
+    <li>
+      <a href="cap02-primse.html">Primeira Sessão</a>
+    </li>
+    <li>
+      <a href="cap90-exerc.html">Exercícios</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="scripts/index.html">
+    <span class="fa fa-file-text"></span>
+     
+    Scripts
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.youtube.com/watch?v=3QWmUhsSbsI&amp;list=PLXaDAv_nBDLdjd_k3vgQezne2HRc4flB8">
+    <span class="fa fa-youtube"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.researchgate.net/profile/Walmes_Zeviani2">
+    <span class="fa fa-user"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://github.com/walmes/paer">
+    <span class="fa fa-github fa-lg"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+<style type="text/css">
+div.header {
+    margin-top: 20px;
+    border-bottom: 1px solid #BCBCBC;
+    border-top: none;
+}
+table.header {
+    margin-top: 10px;
+    border-collapse: unset;
+}
+table.header > tbody {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+</style>
+
+<table class="header" width="100%" align="center">
+  <tr>
+    <td align="left" valign="bottom" width="90px">
+      <img src="config/newuser-logo.png" width="100%" />
+    </td>
+    <td align="left" valign="top">
+      <div class="header">
+        <h4 style="font-size: 20px; margin: 10px auto 0 10px">
+          Planejamento e Análise de Experimentos com R
+        </h4>
+        <h5 style="margin: 0px 0px 10px 10px">
+          <a href="https://walmes.github.io/paer">
+            <code>walmes.github.io/paer</code>
+          </a>
+        </h5>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Exercícios</h1>
+
+</div>
+
+
+<div id="parte-i" class="section level1">
+<h1><span class="header-section-number">1</span> Parte I</h1>
+<ol style="list-style-type: decimal">
+<li>Usando o R como uma calculadora, obtenha as raízes da equação de segundo grau <span class="math inline">\(f(x) = 10 + 2x - 0.5x^2\)</span> pela fórmula de Baskara.</li>
+<li>Crie a sequência regular 3, 7, 11, …, 59. Com funções do R para consulta de propriedades e seleção do objeto, obtenha:
+<ol style="list-style-type: lower-alpha">
+<li>qual o número de elementos do vetor,</li>
+<li>qual o elemento na posição 7,</li>
+<li>quantos elementos são maiores que 40 e</li>
+<li>quantos estão entre 20 e 50 inclusive.</li>
+</ol></li>
+<li>A tabela <a href="http://leg.ufpr.br/~walmes/data/hibridos.txt" class="uri">http://leg.ufpr.br/~walmes/data/hibridos.txt</a> contém informações sobre híbridos de milho. A descrição das variáveis está dentro do arquivo na forma de comentário. Importe a tabela no R e obtenha:
+<ol style="list-style-type: lower-alpha">
+<li>as dimensões da tabela importada,</li>
+<li>um gráfico de setores que representa a proporção de híbridos em cada classe de resistência,</li>
+<li>o rendimento médio de grãos e o desvio-padrão da amostra de híbridos,</li>
+<li>um gráfico que relacione o rendimento de graõs e o tamanho do ciclo dos híbridos.</li>
+</ol></li>
+<li>A tabela <a href="http://leg.ufpr.br/~walmes/data/renda-idh-alfab.csv" class="uri">http://leg.ufpr.br/~walmes/data/renda-idh-alfab.csv</a> contém a renda, alfabetismo e IDH dos municípios brasileiros. Faça gráficos para representar:
+<ol style="list-style-type: lower-alpha">
+<li>o número de municípios por Estado,</li>
+<li>renda mediana dos municípios por Estado,</li>
+<li>a distribuição de renda entre os munícios para cada Estado.</li>
+<li>a relação entre taxa de alfabetismo e renda em cada Estado.</li>
+</ol></li>
+<li>A tabela <a href="http://leg.ufpr.br/~walmes/data/aval_carros_nota.txt" class="uri">http://leg.ufpr.br/~walmes/data/aval_carros_nota.txt</a> contém a nota, de 0 a 10, dada pelos proprietários de 34 modelos de veículos sobre 15 quesitos do automóvel. Os dados foram lidos do <a href="http://www.carrosnaweb.com.br/opiniao.asp" class="uri">http://www.carrosnaweb.com.br/opiniao.asp</a>. Faça uma análise descritiva dos dados e obtenha:
+<ol style="list-style-type: lower-alpha">
+<li>qual o modelo com maior número de opinões,</li>
+<li>qual o modelo com maior nota média geral,</li>
+<li>qual o modelo com a pior nota média para consumo,</li>
+<li>para qual modelo existem maior variância entre as respostas dos donos sobre o custo-benefício,</li>
+<li>em qual dos quesitos há mais variabilidade sobre o valor médio entre os modelos (e.g. o valor médio dos modelos é mais variável para suspensão, ou seja, a maior diferença entre os modelos é na suspensão?).</li>
+</ol></li>
+<li>A tabela &lt;“<a href="http://leg.ufpr.br/~walmes/data/WorldCup2014_players.txt" class="uri">http://leg.ufpr.br/~walmes/data/WorldCup2014_players.txt</a>”&gt; contém informações biométricas e esportivas sobre os jogadores de todos os times que disputaram a Copa do Mundo 2014 que o Brasil sediou. A tabela contém centenas de linhas e dezenas de variáveis que estão com nome em inglês. Com as funções do R e gráficos da <code>lattice</code>
+<ol style="list-style-type: lower-alpha">
+<li>represente em um diagrama de dispersão a relação entre a altura (Height) e peso (Weight) dos jogadores separados por seleção (TeamName),</li>
+<li>determine a altura média dos jogadores em cada seleção e represente em um gráfico de Pareto (seleções ordenadas de acordo com a altura média),</li>
+<li>calcule o IMC (IMC = peso/altura<sup>2</sup>, peso em kg e altura em metros) e determine a seleção com maior variação no IMC entre os jogadores,</li>
+<li>investigue se existe relação entre a proporção de bolas áereas vencidas (AerialWon/(AerialWon + AerialLost)) e a altura do jogador (Height).</li>
+</ol></li>
+</ol>
+<p>DICA: use sempre os argumentos listados abaixo durante a leitura das tabelas. Onde está <code>?</code> você deve modificar e manter como estão os demais.</p>
+<pre><code>read.table(file = ?,
+           sep = ?,
+           dec = ?,
+           skip = ?,
+           header = TRUE,
+           quote = &quot;&quot;,
+           comment.char = &quot;&quot;,
+           encoding =  &quot;utf-8&quot;)</code></pre>
+</div>
+
+<style type="text/css">
+hr.footer {
+    border-top: 1px solid #BCBCBC;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+table.footer {
+    margin-bottom: 10px;
+    border-bottom: none;
+    border-collapse: unset;
+}
+table.footer > tbody {
+    border-bottom: 0px;
+}
+div.tocify-extend-page {
+	height: 10px !important;
+}
+</style>
+
+<hr class="footer"/>
+<center>
+  <table class="footer" width="100%">
+    <tr>
+      <td width="60%">
+	<h4><em>Planejamento e Análise de Experimentos com R</em></h4>
+      </td>
+      <td width="40%" align="right">
+        <a href="https://walmes.github.io/paer">
+          walmes.github.io/paer
+      </a></td>
+    </tr>
+  </table>
+</center>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
