@@ -1,7 +1,3 @@
-<!-- Baseado no arquivo: 
-  /usr/lib/R/site-library/rmarkdown/rmd/h/default.html
--->
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt.BR" xml:lang="pt.BR">
@@ -28,6 +24,8 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -38,53 +36,20 @@
   });
 </script>
 
-
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-div.sourceCode {
-  overflow-x: visible;
-}
-</style>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
 
 
 <style type="text/css">
@@ -142,6 +107,7 @@ button.code-folding-btn:focus {
 }
 </style>
 
+
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
@@ -198,7 +164,6 @@ $(document).ready(function () {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-<script src="/tabsets.js"></script>
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
@@ -206,7 +171,9 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script src="/codefolding.js"></script>
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 <script>
 $(document).ready(function () {
   window.initializeCodeFolding("hide" === "show");
@@ -230,7 +197,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
@@ -289,8 +256,9 @@ div.tocify {
 }
 
 .tocify-subheader .tocify-item {
-  font-size: 0.9em;
-  padding-left: 5px;
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -302,7 +270,6 @@ div.tocify {
 }
 .tocify-subheader .tocify-item {
   font-size: 0.95em;
-  padding-left: 10px;
 }
 
 </style>
@@ -349,6 +316,9 @@ div.tocify {
     </li>
     <li>
       <a href="cap02-primse.html">Primeira Sessão</a>
+    </li>
+    <li>
+      <a href="cap90-exerc.html">Exercícios</a>
     </li>
   </ul>
 </li>
@@ -444,8 +414,8 @@ table.header > tbody {
 <p>Usários do SO Windows podem instalar o R a partir do executável <code>*.exe</code> disponibilizado em: <a href="http://cran-r.c3sl.ufpr.br/bin/windows/" class="uri">http://cran-r.c3sl.ufpr.br/bin/windows/</a>. Para uma instalação padrão, basta clicar em avançar durante as etapas até chegar em concluir. Usuários de Mac OS X devem seguir as instruções diponíveis no site.</p>
 <p>Para os usuários de Linux, existem tutoriais para instalação em 4 distribuições: Debian, Redhat, Suse e Ubuntu. Os passos para instalação do R no Ubuntu estão descritos abaixo.</p>
 <p>Abra um terminal no seu Ubunto (atalho <code>Ctrl + Alt + t</code>). Em seguida verique a versão do Ubuntu que está usando.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co"># Mostra a versão do Ubuntu.</span>
-<span class="kw">lsb_release</span> -a</code></pre></div>
+<pre class="sh"><code># Mostra a versão do Ubuntu.
+lsb_release -a</code></pre>
 <pre><code>No LSB modules are available.
 Distributor ID: Ubuntu
 Description:    Ubuntu 16.04.1 LTS
@@ -487,7 +457,7 @@ sudo apt-get install r-base</code></pre>
 <p>Para instalar o Emacs no Ubuntu, execute cada linha do código abaixo em um terminal. O Emacs atualmente está na versão 24.5.1.</p>
 <pre><code>sudo apt-get install build-essential
 sudo apt-get install emacs emacs-goodies-el ess</code></pre>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">emacs</span> --version</code></pre></div>
+<pre class="sh"><code>emacs --version</code></pre>
 <pre><code>## GNU Emacs 24.5.1
 ## Copyright (C) 2015 Free Software Foundation, Inc.
 ## GNU Emacs comes with ABSOLUTELY NO WARRANTY.
@@ -548,12 +518,25 @@ div.tocify-extend-page {
 <script>
 
 // add bootstrap table styles to pandoc tables
-$(document).ready(function () {
+function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
+
 
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
 </html>

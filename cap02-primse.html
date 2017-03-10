@@ -1,7 +1,3 @@
-<!-- Baseado no arquivo: 
-  /usr/lib/R/site-library/rmarkdown/rmd/h/default.html
--->
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt.BR" xml:lang="pt.BR">
@@ -28,6 +24,8 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -38,53 +36,20 @@
   });
 </script>
 
-
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-div.sourceCode {
-  overflow-x: visible;
-}
-</style>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
 
 
 <style type="text/css">
@@ -142,6 +107,7 @@ button.code-folding-btn:focus {
 }
 </style>
 
+
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
@@ -198,7 +164,6 @@ $(document).ready(function () {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-<script src="/tabsets.js"></script>
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
@@ -206,7 +171,9 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script src="/codefolding.js"></script>
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 <script>
 $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
@@ -230,7 +197,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
@@ -289,8 +256,9 @@ div.tocify {
 }
 
 .tocify-subheader .tocify-item {
-  font-size: 0.9em;
-  padding-left: 5px;
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -302,7 +270,6 @@ div.tocify {
 }
 .tocify-subheader .tocify-item {
   font-size: 0.95em;
-  padding-left: 10px;
 }
 
 </style>
@@ -349,6 +316,9 @@ div.tocify {
     </li>
     <li>
       <a href="cap02-primse.html">Primeira Sessão</a>
+    </li>
+    <li>
+      <a href="cap90-exerc.html">Exercícios</a>
     </li>
   </ul>
 </li>
@@ -459,12 +429,12 @@ Figura 1: RStudio IDE (versão 1.0.136). 1) menu e barra de tarefas, 2) script, 
 <h1><span class="header-section-number">2</span> Instruções e Comentários no Código</h1>
 <p>A forma como se trabalha com R é a chamada REPL de <em>read-eval-print-loop</em> de ler-avaliar-exibir-ciclar. Ou seja, o ciclo é fazer o console ler as instruções, avaliá-las, exibir o resultado e repetir. Outros softwares trabalham no modo <em>batch</em> (em lote) que é ler todas as instruções de uma vez e retornar todos os resultados. O modo REPL é o tipo “pergunta-responde” mas o R também pode ser usado no modo <em>batch</em>.</p>
 <p>Uma das primeiras coisas a se ter conhecimento é sobre como escrever instruções. Primeiro, uma instrução pode ocupar várias linhas desde que seja indicado a continuidade. Uma linha pode conter várias instruções desde que se use o <code>;</code> para quebrar linha explicitamente.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Uma instrução em duas linhas.</span>
-<span class="dv">2</span> +<span class="st"> </span><span class="dv">5</span> +
-<span class="st">    </span><span class="dv">9</span> -<span class="st"> </span><span class="dv">13</span></code></pre></div>
+<pre class="r"><code># Uma instrução em duas linhas.
+2 + 5 +
+    9 - 13</code></pre>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Duas instruções em uma linha.</span>
-<span class="dv">23</span> -<span class="st"> </span><span class="dv">11</span>; <span class="dv">18</span> *<span class="st"> </span><span class="dv">45</span></code></pre></div>
+<pre class="r"><code># Duas instruções em uma linha.
+23 - 11; 18 * 45</code></pre>
 <pre><code>## [1] 12</code></pre>
 <pre><code>## [1] 810</code></pre>
 <p>Note que além das instruções foram inseridos comentários sobre elas para descreve-las. Os comentários no R são demarcados com o sinal de <code>#</code> antes do comentário.</p>
@@ -473,7 +443,7 @@ Figura 1: RStudio IDE (versão 1.0.136). 1) menu e barra de tarefas, 2) script, 
 <div id="consulta-a-documentacao" class="section level1">
 <h1><span class="header-section-number">3</span> Consulta à Documentação</h1>
 <p>No R existem três recursos básicos para consultar a documentação: <code>help()</code>, <code>help.search()</code> e <code>RSiteSearch()</code>. A função <code>help()</code> é usada para consultar a documentação de funções (ou objetos) existentes. Na maoria dos editores, a documentação é exibida em formato texto no console. Com a opção <code>help_type = &quot;html&quot;</code> a documentação é exibida no navegador padrão conforme visto na Figura 2.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(mean, <span class="dt">help_type =</span> <span class="st">&quot;html&quot;</span>)</code></pre></div>
+<pre class="r"><code>help(mean, help_type = &quot;html&quot;)</code></pre>
 <div class="figure" style="text-align: center">
 <img src="img/r-doc-arithmetic-mean.png" alt="Figura  2: Documentação da função `mean` do pacote `stats`. Número em círculos vermelhos são: 1) nome da função e do pacote a qual pertence, 2) descrição da função, 3) formas de uso da função, 4) descrição dos argumentos da função, 5) descrição do valor retornado pela função, 6) referências bibligráficas relacionadas à função, 7) funções relacionadas e 8) código com exemplos de uso da função." width="700px" />
 <p class="caption">
@@ -481,7 +451,7 @@ Figura 2: Documentação da função <code>mean</code> do pacote <code>stats</co
 </p>
 </div>
 <p>A função <code>help.search()</code> faz uma busca em toda documentação local sobre coisas relacionadas ao termo de busca. O termo de busca não precisa ser uma função conhecida mas o nome de um método ou pessoa, por exemplo. O resultado é uma lista com nome de funções e títulos. O código abaixo mostra o resultado para o busca sobre “latin square”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help.search</span>(<span class="st">&quot;latin square&quot;</span>)</code></pre></div>
+<pre class="r"><code>help.search(&quot;latin square&quot;)</code></pre>
 <pre><code>Demos with name or title matching ‘latin square’ using fuzzy matching:
 
 
@@ -516,7 +486,7 @@ ScottKnott::LSD         Latin Squares Design (LSD)
 Type &#39;?PKG::FOO&#39; to inspect entries &#39;PKG::FOO&#39;, or &#39;TYPE?PKG::FOO&#39; for
 entries like &#39;PKG::FOO-TYPE&#39;.</code></pre>
 <p>Por fim, como o próprio nome sugere, a função <code>RSiteSearch()</code> faz buscas relacionadas ao termo na Web. A vantagem é que a busca é sobre todos os pacotes oficiais do R, não apenas os que você tem instalado. Ao chamar a função, o navegador abre em uma página com prefixo <a href="http://search.r-project.org" class="uri">http://search.r-project.org</a> conforme visto na Figura 3. É possível editar o termo de busca e outras opções na página. Em cada item encontrado na busca existe uma url para a respectiva documentação. Fazem parte da url o nome do pacote e o nome da função.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">RSiteSearch</span>(<span class="st">&quot;Scott-Knott&quot;</span>)</code></pre></div>
+<pre class="r"><code>RSiteSearch(&quot;Scott-Knott&quot;)</code></pre>
 <div class="figure" style="text-align: center">
 <img src="img/r-site-search-scott-knott.png" alt="Figura  3: Resultado da busca pelo termo &quot;Skott-Knott&quot;. Os números em círculos vermelhos indicam: 1) o campo com o termo de busca, 2) opções de busca e visualização dos resultados, 3) tipos de resultados encontrados, 4) termo de busca destacado no resultato e 5) url da documentação relativa ao item encontrado." width="700px" />
 <p class="caption">
@@ -529,8 +499,8 @@ Figura 3: Resultado da busca pelo termo “Skott-Knott”. Os números em círcu
 <h1><span class="header-section-number">4</span> Instalação de Pacotes</h1>
 <p>O R é feito de pacotes. Atualmente existem mais de 10 mil <a href="https://cran.r-project.org/web/packages/">pacotes</a> oficiais disponíveis para uso no CRAN. Além destes, existem pacotes no <a href="https://www.bioconductor.org/packages/release/BiocViews.html#___Software">Bioconductor</a> voltados para a bioinformática e os pacotes não oficiais no <a href="https://github.com/trending/r">Github</a>.</p>
 <p>Pacotes oficiais são instalados com a função <code>install.packages()</code>. A função <code>update.packages()</code> serve para a atualizar a lista de pacotes com as versões mais recentes disponíveis no repositório. A lista de pacotes instalados é obtida com a <code>installed.packages()</code>. O caminho padrão para instalação de pacotes é obtido e modificado com a <code>.libPaths()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>,
-                 <span class="dt">repos =</span> <span class="st">&quot;http://cran-r.c3sl.ufpr.br/&quot;</span>)</code></pre></div>
+<pre class="r"><code>install.packages(&quot;agricolae&quot;,
+                 repos = &quot;http://cran-r.c3sl.ufpr.br/&quot;)</code></pre>
 <pre><code>Installing package into ‘/home/walmes/R/x86_64-pc-linux-gnu-library/3.3’
 (as ‘lib’ is unspecified)
 trying URL &#39;http://cran-r.c3sl.ufpr.br/src/contrib/agricolae_1.2-4.tar.gz&#39;
@@ -553,42 +523,42 @@ downloaded 617 KB
 
 The downloaded source packages are in
     ‘/tmp/RtmpO011Zn/downloaded_packages’</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Atualiza os pacotes.</span>
-<span class="kw">update.packages</span>()
+<pre class="r"><code># Atualiza os pacotes.
+update.packages()
 
-<span class="co"># Retorna a lista de pacotes instalados.</span>
-<span class="kw">installed.packages</span>()</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">.libPaths</span>()</code></pre></div>
+# Retorna a lista de pacotes instalados.
+installed.packages()</code></pre>
+<pre class="r"><code>.libPaths()</code></pre>
 <pre><code>## [1] &quot;/home/walmes/R/x86_64-pc-linux-gnu-library/3.3&quot;
 ## [2] &quot;/usr/local/lib/R/site-library&quot;                 
 ## [3] &quot;/usr/lib/R/site-library&quot;                       
 ## [4] &quot;/usr/lib/R/library&quot;</code></pre>
 <p>O pacote <code>devtools</code> possui funções para instalar pacotes de repositórios com controle de versão. A função <code>install_github()</code> permite instalar pacotes R disponíveis no Github. Abaixo está o exemplo de como instalar o pacote <a href="https://github.com/pet-estatistica/labestData">labestData</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
-<span class="kw">install_github</span>(<span class="st">&quot;pet-estatistica/labestData&quot;</span>)</code></pre></div>
+<pre class="r"><code>library(devtools)
+install_github(&quot;pet-estatistica/labestData&quot;)</code></pre>
 </div>
 <div id="salvar-e-carregar-uma-sessao" class="section level1">
 <h1><span class="header-section-number">5</span> Salvar e Carregar uma Sessão</h1>
 <p>Quando fazemos análise de dados no R, na maioria das vezes é suficiente salvarmos o script com as intruções de análise. Isso porque as análises estatísticas usuais como regressão e análise de variância são processadas em frações de segundos. No entanto, alguns procedimentos de análise são mais demorados, como fazer krigagem malha fina em geoestatística ou fazer estudos de simulação.</p>
 <p>Salvar uma sessão é salvar os objetos criados para que em uma sessão futura eles não precisem ser criados novamente. Isso é bastante útil para estudos de simulação ou qualquer método de computação intensiva pois evita que se gastem horas recriando objetos.</p>
 <p>Depois de criar objetos em uma sessão, ela pode ser salva usando a função <code>save.image()</code>. Essa função um arquivo binário, normalmente de extensão <code>.RData</code> ou <code>.rda</code>, que contém os objetos da sessão. Ao carregar o arquivo com <code>load()</code>, os objetos são restaurados.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Criando objetos.</span>
-x &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">30</span>
-y &lt;-<span class="st"> </span><span class="kw">sample</span>(LETTERS[<span class="dv">1</span>:<span class="dv">5</span>], <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+<pre class="r"><code># Criando objetos.
+x &lt;- 1:30
+y &lt;- sample(LETTERS[1:5], size = 20, replace = TRUE)
 
-<span class="co"># Lista os objetos presentes na memória.</span>
-<span class="kw">ls</span>()
+# Lista os objetos presentes na memória.
+ls()
 
-<span class="co"># Salva os objetos.</span>
-<span class="kw">save.image</span>(<span class="st">&quot;objetos.RData&quot;</span>)
+# Salva os objetos.
+save.image(&quot;objetos.RData&quot;)
 
-<span class="co"># Remove todos os objetos da sessão.</span>
-<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+# Remove todos os objetos da sessão.
+rm(list = ls())
 
-<span class="co"># Nova sessão que carrega os objetos criados.</span>
-<span class="kw">load</span>(<span class="st">&quot;objetos.RData&quot;</span>)</code></pre></div>
+# Nova sessão que carrega os objetos criados.
+load(&quot;objetos.RData&quot;)</code></pre>
 <p>A função <code>save()</code> serve para salvar apenas alguns objetos e não todos. O nome dos objetos devem ser informados, logicamente.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(x, y, iris, <span class="dt">file =</span> <span class="st">&quot;alguns-objetos.RData&quot;</span>)</code></pre></div>
+<pre class="r"><code>save(x, y, iris, file = &quot;alguns-objetos.RData&quot;)</code></pre>
 </div>
 <div id="blogs-e-listas-de-discussao" class="section level1">
 <h1><span class="header-section-number">6</span> Blogs e Listas de Discussão</h1>
@@ -655,12 +625,25 @@ div.tocify-extend-page {
 <script>
 
 // add bootstrap table styles to pandoc tables
-$(document).ready(function () {
+function bootstrapStylePandocTables() {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
 });
+
 
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 </body>
 </html>
